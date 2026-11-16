@@ -1,0 +1,19 @@
+"--endian=little" 
+
+"--cpu=Cortex-M4" 
+
+"--fpu=None" 
+
+"-p" 
+
+"E:\Programs\IAR Systems\Embedded Workbench 8.3\arm\CONFIG\debugger\NXP\S32K148.ddf" 
+
+"--semihosting" 
+
+"--device=S32K148" 
+
+"--multicore_nr_of_cores=1" 
+
+
+
+
