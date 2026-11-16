@@ -220,7 +220,8 @@
                 <debug>1</debug>
                 <option>
                     <name>CCDefines</name>
-                    <state></state>
+                    <state>START_FROM_FLASH</state>
+                    <state>CPU_S32K148</state>
                 </option>
                 <option>
                     <name>CCPreprocFile</name>
@@ -329,7 +330,7 @@
                 </option>
                 <option>
                     <name>OutputFile</name>
-                    <state></state>
+                    <state>$FILE_BNAME$.o</state>
                 </option>
                 <option>
                     <name>CCLibConfigHeader</name>
@@ -604,7 +605,7 @@
                 </option>
                 <option>
                     <name>AOutputFile</name>
-                    <state></state>
+                    <state>$FILE_BNAME$.o</state>
                 </option>
                 <option>
                     <name>ALimitErrorsCheck</name>
@@ -646,7 +647,7 @@
                 <option>
                     <name>OOCOutputFormat</name>
                     <version>3</version>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>OCOutputOverride</name>
@@ -654,7 +655,7 @@
                 </option>
                 <option>
                     <name>OOCOutputFile</name>
-                    <state></state>
+                    <state>S32K1X_Project.hex</state>
                 </option>
                 <option>
                     <name>OOCCommandLineProducer</name>
@@ -662,7 +663,7 @@
                 </option>
                 <option>
                     <name>OOCObjCopyEnable</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
             </data>
         </settings>
@@ -769,11 +770,11 @@
                 </option>
                 <option>
                     <name>IlinkIcfOverride</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>IlinkIcfFile</name>
-                    <state>lnk0t.icf</state>
+                    <state>F:\PROJECT\AutoSARWorkSpace\AUTOSAR_S32K1X_2\S32K1X_Project\Linker_Files\S32K148_256_flash.icf</state>
                 </option>
                 <option>
                     <name>IlinkIcfFileSlave</name>
@@ -833,7 +834,7 @@
                 </option>
                 <option>
                     <name>IlinkProgramEntryLabel</name>
-                    <state></state>
+                    <state>__iar_program_start</state>
                 </option>
                 <option>
                     <name>DoFill</name>
@@ -1006,7 +1007,7 @@
                 </option>
                 <option>
                     <name>IlinkTrustzoneImportLibraryOut</name>
-                    <state>###Unitialized###</state>
+                    <state>S32K1X_Project_import_lib.o</state>
                 </option>
                 <option>
                     <name>OILinkExtraOption</name>
@@ -2121,29 +2122,14 @@
     </group>
     <group>
         <name>StartUp_Code</name>
-        <file>
-            <name>$PROJ_DIR$\StartUp_Code\startup_S32K148.S</name>
-        </file>
         <group>
             <name>devices</name>
-            <file>
-                <name>$PROJ_DIR$\StartUp_Code\devices\callbacks.h</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\StartUp_Code\devices\devassert.h</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\StartUp_Code\devices\device_registers.h</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\StartUp_Code\devices\startup.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\StartUp_Code\devices\startup.h</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\StartUp_Code\devices\status.h</name>
-            </file>
+            <group>
+                <name>common</name>
+                <file>
+                    <name>$PROJ_DIR$\StartUp_Code\devices\common\s32_core_cm4.h</name>
+                </file>
+            </group>
             <group>
                 <name>S32K148</name>
                 <group>
@@ -2165,12 +2151,30 @@
                     </file>
                 </group>
             </group>
-            <group>
-                <name>common</name>
-                <file>
-                    <name>$PROJ_DIR$\StartUp_Code\devices\common\s32_core_cm4.h</name>
-                </file>
-            </group>
+            <file>
+                <name>$PROJ_DIR$\StartUp_Code\devices\callbacks.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\StartUp_Code\devices\devassert.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\StartUp_Code\devices\device_registers.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\StartUp_Code\devices\startup.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\StartUp_Code\devices\startup.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\StartUp_Code\devices\status.h</name>
+            </file>
         </group>
+        <file>
+            <name>$PROJ_DIR$\StartUp_Code\startup_S32K148.S</name>
+        </file>
     </group>
+    <file>
+        <name>$PROJ_DIR$\main.c</name>
+    </file>
 </project>

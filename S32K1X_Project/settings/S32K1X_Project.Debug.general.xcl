@@ -1,6 +1,6 @@
 "E:\Programs\IAR Systems\Embedded Workbench 8.3\arm\bin\armproc.dll" 
 
-"E:\Programs\IAR Systems\Embedded Workbench 8.3\arm\bin\armsim2.dll" 
+"E:\Programs\IAR Systems\Embedded Workbench 8.3\arm\bin\armjlink2.dll" 
 
 "F:\PROJECT\AutoSARWorkSpace\AUTOSAR_S32K1X_2\S32K1X_Project\Debug\Exe\S32K1X_Project.out" 
 
@@ -9,6 +9,8 @@
 --device_macro="E:\Programs\IAR Systems\Embedded Workbench 8.3\arm\config\debugger\NXP\KE1xF.dmac" 
 
 --device_macro="E:\Programs\IAR Systems\Embedded Workbench 8.3\arm\config\debugger\NXP\S32K148_trace.dmac" 
+
+--flash_loader="E:\Programs\IAR Systems\Embedded Workbench 8.3\arm\config\flashloader\NXP\FlashS32K148.board" 
 
 
 
