@@ -145,10 +145,6 @@
                 </tool>
             </outputs>
         </file>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\Debug\Exe\S32K1X_Project.out</name>
-            <tool>OBJCOPY</tool>
-        </forcedrebuild>
     </configuration>
     <configuration>
         <name>Release</name>
