@@ -153,16 +153,14 @@ extern "C" {
 */
 static CONST(uint16, PORT_CONST) Port_au16NoUnUsedPadsArrayDefault[PORT_MAX_UNUSED_PADS_U16]=
 {
+    (uint16)0,
     (uint16)1,
     (uint16)2,
     (uint16)3,
-    (uint16)4,
-    (uint16)5,
     (uint16)6,
     (uint16)7,
     (uint16)8,
     (uint16)9,
-    (uint16)10,
     (uint16)11,
     (uint16)12,
     (uint16)13,
@@ -220,8 +218,6 @@ static CONST(uint16, PORT_CONST) Port_au16NoUnUsedPadsArrayDefault[PORT_MAX_UNUS
     (uint16)65,
     (uint16)66,
     (uint16)67,
-    (uint16)68,
-    (uint16)69,
     (uint16)70,
     (uint16)71,
     (uint16)72,
@@ -300,8 +296,6 @@ static CONST(uint16, PORT_CONST) Port_au16NoUnUsedPadsArrayDefault[PORT_MAX_UNUS
     (uint16)145,
     (uint16)146,
     (uint16)147,
-    (uint16)148,
-    (uint16)149,
     (uint16)150,
     (uint16)151,
     (uint16)152,
@@ -334,7 +328,13 @@ static CONST(Port_Port_Ci_UnUsedPinConfigType, PORT_CONST) Port_UnUsedPin =
 */
 static CONST(Port_Port_Ci_PinConfigType, PORT_CONST) Port_aPinConfigDefault[PORT_MAX_CONFIGURED_PADS_U16]=
 {
-    {(Port_InternalPinIdType)0, (uint32)0x00000100, (uint8)0, (Port_PinDirectionType)1, (boolean)TRUE, (boolean)TRUE, (boolean)TRUE}
+    {(Port_InternalPinIdType)148, (uint32)0x00000102, (uint8)0, (Port_PinDirectionType)2, (boolean)TRUE, (boolean)FALSE, (boolean)FALSE},
+    {(Port_InternalPinIdType)149, (uint32)0x00000102, (uint8)0, (Port_PinDirectionType)2, (boolean)TRUE, (boolean)FALSE, (boolean)FALSE},
+    {(Port_InternalPinIdType)4, (uint32)0x00000703, (uint8)0, (Port_PinDirectionType)1, (boolean)FALSE, (boolean)FALSE, (boolean)FALSE},
+    {(Port_InternalPinIdType)68, (uint32)0x00000702, (uint8)0, (Port_PinDirectionType)1, (boolean)FALSE, (boolean)FALSE, (boolean)FALSE},
+    {(Port_InternalPinIdType)69, (uint32)0x00000703, (uint8)0, (Port_PinDirectionType)1, (boolean)FALSE, (boolean)FALSE, (boolean)FALSE},
+    {(Port_InternalPinIdType)10, (uint32)0x00000700, (uint8)0, (Port_PinDirectionType)2, (boolean)FALSE, (boolean)FALSE, (boolean)FALSE},
+    {(Port_InternalPinIdType)5, (uint32)0x00000703, (uint8)0, (Port_PinDirectionType)1, (boolean)FALSE, (boolean)FALSE, (boolean)FALSE}
 
 };
 

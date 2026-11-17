@@ -19,40 +19,33 @@
             <d:ctr type="MODULE-CONFIGURATION">
               <a:a name="DEF" value="ASPath:/TS_T40D2M10I1R0/Dio"/>
               <d:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION" 
-                     value="VariantPreCompile">
-                <a:a name="IMPORTER_INFO" value="@DEF"/>
-              </d:var>
+                     value="VariantPreCompile"/>
               <d:ctr name="DioConfig" type="IDENTIFIABLE">
                 <d:lst name="DioPort" type="MAP">
-                  <d:ctr name="DioPort_0" type="IDENTIFIABLE">
-                    <d:var name="DioPortId" type="INTEGER" value="0">
-                      <a:a name="IMPORTER_INFO" value="@DEF"/>
-                    </d:var>
-                    <d:lst name="DioChannel" type="MAP"/>
+                  <d:ctr name="DioPort_PTE" type="IDENTIFIABLE">
+                    <d:var name="DioPortId" type="INTEGER" value="4"/>
+                    <d:lst name="DioChannel" type="MAP">
+                      <d:ctr name="DioChannel_PTE20" type="IDENTIFIABLE">
+                        <d:var name="DioChannelId" type="INTEGER" value="20"/>
+                      </d:ctr>
+                      <d:ctr name="DioChannel_PTE21" type="IDENTIFIABLE">
+                        <d:var name="DioChannelId" type="INTEGER" value="21"/>
+                      </d:ctr>
+                    </d:lst>
                     <d:lst name="DioChannelGroup" type="MAP"/>
                   </d:ctr>
                 </d:lst>
               </d:ctr>
               <d:ctr name="DioGeneral" type="IDENTIFIABLE">
-                <d:var name="DioDevErrorDetect" type="BOOLEAN" value="false">
-                  <a:a name="IMPORTER_INFO" value="@DEF"/>
-                </d:var>
+                <d:var name="DioDevErrorDetect" type="BOOLEAN" value="true"/>
                 <d:var name="DioVersionInfoApi" type="BOOLEAN" value="false">
                   <a:a name="IMPORTER_INFO" value="@DEF"/>
                 </d:var>
-                <d:var name="DioReversePortBits" type="BOOLEAN" value="false">
-                  <a:a name="IMPORTER_INFO" value="@DEF"/>
-                </d:var>
-                <d:var name="DioFlipChannelApi" type="BOOLEAN" value="false">
-                  <a:a name="IMPORTER_INFO" value="@DEF"/>
-                </d:var>
+                <d:var name="DioReversePortBits" type="BOOLEAN" value="true"/>
+                <d:var name="DioFlipChannelApi" type="BOOLEAN" value="true"/>
                 <d:var name="DioReadZeroForUndefinedPortPins" type="BOOLEAN" 
-                       value="false">
-                  <a:a name="IMPORTER_INFO" value="@DEF"/>
-                </d:var>
-                <d:var name="DioMaskedWritePortApi" type="BOOLEAN" value="false">
-                  <a:a name="IMPORTER_INFO" value="@DEF"/>
-                </d:var>
+                       value="true"/>
+                <d:var name="DioMaskedWritePortApi" type="BOOLEAN" value="false"/>
                 <d:var name="DioEnableUserModeSupport" type="BOOLEAN" 
                        value="false">
                   <a:a name="IMPORTER_INFO" value="@DEF"/>

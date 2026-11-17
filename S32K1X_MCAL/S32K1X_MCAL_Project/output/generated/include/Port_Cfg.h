@@ -834,7 +834,7 @@ extern "C" {
 *
 * @implements   PORT_SET_PIN_DIRECTION_API_define
 */
-#define PORT_SET_PIN_DIRECTION_API      (STD_ON)
+#define PORT_SET_PIN_DIRECTION_API      (STD_OFF)
 
 /**
 * @brief Use/remove Port_Set2PinsDirection function from the compiled driver
@@ -848,7 +848,7 @@ extern "C" {
 *
 * @implements   PORT_SET_PIN_MODE_API_define
 */
-#define PORT_SET_PIN_MODE_API           (STD_ON)
+#define PORT_SET_PIN_MODE_API           (STD_OFF)
 
 /**
 * @brief Enable/Disable Port_SetPinMode function updating the output level of the pins configured at runtime as GPIO
@@ -885,7 +885,19 @@ extern "C" {
 *
 */
 /** @violates @ref PORT_CFG_H_REF_1 The used compilers use more than 31 chars for identifiers. */
-#define PortConfigSet_PortContainer_0_PortPin_0  0
+#define PortConfigSet_PortContainer_PTE_PortPin_PTE20  0
+/** @violates @ref PORT_CFG_H_REF_1 The used compilers use more than 31 chars for identifiers. */
+#define PortConfigSet_PortContainer_PTE_PortPin_PTE21  1
+/** @violates @ref PORT_CFG_H_REF_1 The used compilers use more than 31 chars for identifiers. */
+#define PortConfigSet_PortContainer_JTAG_PortPin_PTA4_JTAG_TMS  2
+/** @violates @ref PORT_CFG_H_REF_1 The used compilers use more than 31 chars for identifiers. */
+#define PortConfigSet_PortContainer_JTAG_PortPin_PTC4_JTAG_TCLK  3
+/** @violates @ref PORT_CFG_H_REF_1 The used compilers use more than 31 chars for identifiers. */
+#define PortConfigSet_PortContainer_JTAG_PortPin_PTC5_JTAG_TDI  4
+/** @violates @ref PORT_CFG_H_REF_1 The used compilers use more than 31 chars for identifiers. */
+#define PortConfigSet_PortContainer_JTAG_PortPin_PTA10_JTAG_TDO  5
+/** @violates @ref PORT_CFG_H_REF_1 The used compilers use more than 31 chars for identifiers. */
+#define PortConfigSet_PortContainer_JTAG_PortPin_PTA5_NRESET  6
 
 
 /**
@@ -906,12 +918,12 @@ extern "C" {
 /**
 * @brief The maximum number of configured pins
 */
-#define PORT_MAX_CONFIGURED_PADS_U16                        ((uint16)1)
+#define PORT_MAX_CONFIGURED_PADS_U16                        ((uint16)7)
 
 /**
  * @brief Number of UnUsed pin array
 */
-#define PORT_MAX_UNUSED_PADS_U16   (155U)
+#define PORT_MAX_UNUSED_PADS_U16   (149U)
 
 /**
 * @brief Port driver Post-build configuration switch

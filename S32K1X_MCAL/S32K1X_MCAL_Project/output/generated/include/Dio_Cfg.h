@@ -121,7 +121,7 @@ extern "C" {
 * @implements     DIO_DEV_ERROR_DETECT_define
 * @api
 */
-#define DIO_DEV_ERROR_DETECT    (STD_OFF)
+#define DIO_DEV_ERROR_DETECT    (STD_ON)
 
 /**
 * @brief          Function @p Dio_GetVersionInfo() enable switch.
@@ -136,7 +136,7 @@ extern "C" {
 *
 * @api
 */
-#define DIO_FLIP_CHANNEL_API    (STD_OFF)
+#define DIO_FLIP_CHANNEL_API    (STD_ON)
 
 /**
 * @brief          Function @p Dio_MaskedWritePort() enable switch.
@@ -151,14 +151,14 @@ extern "C" {
 * @implements     DIO_REVERSEPORTBITS_define
 * @api
 */
-#define DIO_REVERSEPORTBITS     (STD_OFF)
+#define DIO_REVERSEPORTBITS     (STD_ON)
 
 /**
 * @brief          Undefined pins masking enable switch.
 *
 * @api
 */
-#define DIO_READZERO_UNDEFINEDPORTS (STD_OFF)
+#define DIO_READZERO_UNDEFINEDPORTS (STD_ON)
 
 
 /**
@@ -261,13 +261,31 @@ extern "C" {
 
 /* ========== DioConfig ========== */
 
-/* ---------- DioPort_0 ---------- */
+/* ---------- DioPort_PTE ---------- */
 
 /**
-* @brief          Symbolic name for the port DioPort_0.
+* @brief          Symbolic name for the port DioPort_PTE.
 *
 */
-#define DioConf_DioPort_DioPort_0  ((uint8)0x00U)
+#define DioConf_DioPort_DioPort_PTE  ((uint8)0x04U)
+
+/**
+* @brief          Symbolic name for the channel DioChannel_PTE20.
+*
+*/
+
+
+/** @violates @ref Dio_Cfg_H_REF_1 The used compilers use more than 31 chars for identifiers. */
+#define  DioConf_DioChannel_DioChannel_PTE20 ((uint16)0x0094U)
+
+/**
+* @brief          Symbolic name for the channel DioChannel_PTE21.
+*
+*/
+
+
+/** @violates @ref Dio_Cfg_H_REF_1 The used compilers use more than 31 chars for identifiers. */
+#define  DioConf_DioChannel_DioChannel_PTE21 ((uint16)0x0095U)
 
 
 /*=================================================================================================
