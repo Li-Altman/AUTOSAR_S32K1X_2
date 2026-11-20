@@ -356,6 +356,7 @@
                     <state>$PROJ_DIR$\MCAL_Code\Cfg\include</state>
                     <state>$PROJ_DIR$\MCAL_Code\Det\include</state>
                     <state>$PROJ_DIR$\MCAL_Code\Dio\include</state>
+                    <state>$PROJ_DIR$\MCAL_Code\Mcu\include</state>
                     <state>$PROJ_DIR$\MCAL_Code\Port\include</state>
                     <state>$PROJ_DIR$\MCAL_Code\Rte\include</state>
                 </option>
@@ -1418,6 +1419,7 @@
                     <state>$PROJ_DIR$\MCAL_Code\Cfg\include</state>
                     <state>$PROJ_DIR$\MCAL_Code\Det\include</state>
                     <state>$PROJ_DIR$\MCAL_Code\Dio\include</state>
+                    <state>$PROJ_DIR$\MCAL_Code\Mcu\include</state>
                     <state>$PROJ_DIR$\MCAL_Code\Port\include</state>
                     <state>$PROJ_DIR$\MCAL_Code\Rte\include</state>
                 </option>
@@ -2149,19 +2151,19 @@
                     <name>$PROJ_DIR$\MCAL_Code\Base\include\Can_MemMap.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Base\include\Compiler.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\Base\include\ComStack_Cfg.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Base\include\Compiler_Cfg.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\Base\include\ComStack_Types.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Base\include\Compiler.h</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\MCAL_Code\Base\include\CompilerDefinition.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Base\include\ComStack_Cfg.h</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Base\include\ComStack_Types.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\Base\include\Compiler_Cfg.h</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\MCAL_Code\Base\include\Crcu_MemMap.h</name>
@@ -2248,10 +2250,10 @@
                     <name>$PROJ_DIR$\MCAL_Code\Base\include\Spi_MemMap.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Base\include\Std_Types.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\Base\include\StdRegMacros.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Base\include\StdRegMacros.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\Base\include\Std_Types.h</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\MCAL_Code\Base\include\Wdg_MemMap.h</name>
@@ -2266,7 +2268,7 @@
                     <name>$PROJ_DIR$\MCAL_Code\Cfg\include\Dio_Cfg.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Cfg\include\modules.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\Cfg\include\Mcu_Cfg.h</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\MCAL_Code\Cfg\include\Port_Cfg.h</name>
@@ -2274,11 +2276,20 @@
                 <file>
                     <name>$PROJ_DIR$\MCAL_Code\Cfg\include\Reg_eSys.h</name>
                 </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Cfg\include\modules.h</name>
+                </file>
             </group>
             <group>
                 <name>src</name>
                 <file>
                     <name>$PROJ_DIR$\MCAL_Code\Cfg\src\Dio_Cfg.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Cfg\src\Mcu_Cfg.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Cfg\src\Mcu_PBcfg.c</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\MCAL_Code\Cfg\src\Port_Cfg.c</name>
@@ -2334,6 +2345,144 @@
             </group>
         </group>
         <group>
+            <name>Mcu</name>
+            <group>
+                <name>include</name>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_CMU.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_CMU_IPVersion.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_CMU_Types.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_CortexM4.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_EnvCfg.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_IPW.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_IPW_Irq.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_IPW_Types.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_PCC.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_PCC_Types.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_PMC.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_PMC_IPVersion.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_PMC_Types.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_RCM.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_RCM_Types.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_SCG.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_SCG_Types.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_SIM.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_SIM_Types.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_SMC.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Mcu_SMC_Types.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Reg_eSys_CMU.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Reg_eSys_CortexM4.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Reg_eSys_PCC.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Reg_eSys_PMC.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Reg_eSys_RCM.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Reg_eSys_SCG.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Reg_eSys_SIM.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\include\Reg_eSys_SMC.h</name>
+                </file>
+            </group>
+            <group>
+                <name>src</name>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\src\Mcu.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\src\Mcu_CMU.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\src\Mcu_CMU_Irq.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\src\Mcu_CortexM4.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\src\Mcu_IPW.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\src\Mcu_IPW_Irq.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\src\Mcu_PCC.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\src\Mcu_PMC.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\src\Mcu_PMC_Irq.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\src\Mcu_RCM.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\src\Mcu_SCG.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\src\Mcu_SIM.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Mcu\src\Mcu_SMC.c</name>
+                </file>
+            </group>
+        </group>
+        <group>
             <name>Port</name>
             <group>
                 <name>include</name>
@@ -2377,19 +2526,145 @@
             <group>
                 <name>include</name>
                 <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Adc.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Can.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Crcu.h</name>
+                </file>
+                <file>
                     <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Dio.h</name>
                 </file>
                 <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Eep.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Eth.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Fee.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Fls.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Fr.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Gpt.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_I2c.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Icu.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Iseled.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Lin.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Mcem.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Mcl.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Mcu.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Ocu.h</name>
+                </file>
+                <file>
                     <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Port.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Pwm.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_RamTst.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Spi.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Wdg.h</name>
                 </file>
             </group>
             <group>
                 <name>src</name>
                 <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Adc.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Can.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Crcu.c</name>
+                </file>
+                <file>
                     <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Dio.c</name>
                 </file>
                 <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Eep.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Eth.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Fee.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Fls.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Fr.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Gpt.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_I2c.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Icu.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Iseled.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Lin.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Mcem.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Mcl.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Mcu.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Ocu.c</name>
+                </file>
+                <file>
                     <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Port.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Pwm.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_RamTst.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Spi.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Wdg.c</name>
                 </file>
             </group>
         </group>
