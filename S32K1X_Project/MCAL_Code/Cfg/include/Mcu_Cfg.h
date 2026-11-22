@@ -176,7 +176,7 @@ extern "C"{
 * @brief            Pre-processor switch for enabling the development error detection and reporting to the DET.
 *                   The detection of development errors is configurable (ON / OFF) at pre-compile time.
 */
-#define MCU_DEV_ERROR_DETECT   (STD_ON)
+#define MCU_DEV_ERROR_DETECT   (STD_OFF)
 
 
 /**

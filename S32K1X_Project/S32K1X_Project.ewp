@@ -358,7 +358,7 @@
                     <state>$PROJ_DIR$\MCAL_Code\Dio\include</state>
                     <state>$PROJ_DIR$\MCAL_Code\Mcu\include</state>
                     <state>$PROJ_DIR$\MCAL_Code\Port\include</state>
-                    <state>$PROJ_DIR$\MCAL_Code\Rte\include</state>
+                    <state>$PROJ_DIR$\MCAL_Code\SchM\include</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -782,7 +782,7 @@
                 </option>
                 <option>
                     <name>IlinkIcfFile</name>
-                    <state>F:\PROJECT\AutoSARWorkSpace\AUTOSAR_S32K1X_2\S32K1X_Project\Linker_Files\S32K148_256_flash.icf</state>
+                    <state>$PROJ_DIR$\Linker_Files\S32K148_256_flash.icf</state>
                 </option>
                 <option>
                     <name>IlinkIcfFileSlave</name>
@@ -1421,7 +1421,7 @@
                     <state>$PROJ_DIR$\MCAL_Code\Dio\include</state>
                     <state>$PROJ_DIR$\MCAL_Code\Mcu\include</state>
                     <state>$PROJ_DIR$\MCAL_Code\Port\include</state>
-                    <state>$PROJ_DIR$\MCAL_Code\Rte\include</state>
+                    <state>$PROJ_DIR$\MCAL_Code\SchM\include</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -1841,11 +1841,11 @@
                 </option>
                 <option>
                     <name>IlinkIcfOverride</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>IlinkIcfFile</name>
-                    <state>lnk0t.icf</state>
+                    <state>$PROJ_DIR$\Linker_Files\S32K148_256_flash.icf</state>
                 </option>
                 <option>
                     <name>IlinkIcfFileSlave</name>
@@ -2522,149 +2522,149 @@
             </group>
         </group>
         <group>
-            <name>Rte</name>
+            <name>SchM</name>
             <group>
                 <name>include</name>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Adc.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Adc.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Can.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Can.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Crcu.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Crcu.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Dio.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Dio.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Eep.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Eep.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Eth.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Eth.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Fee.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Fee.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Fls.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Fls.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Fr.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Fr.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Gpt.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Gpt.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_I2c.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_I2c.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Icu.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Icu.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Iseled.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Iseled.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Lin.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Lin.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Mcem.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Mcem.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Mcl.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Mcl.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Mcu.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Mcu.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Ocu.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Ocu.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Port.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Port.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Pwm.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Pwm.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_RamTst.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_RamTst.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Spi.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Spi.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\include\SchM_Wdg.h</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\include\SchM_Wdg.h</name>
                 </file>
             </group>
             <group>
                 <name>src</name>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Adc.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Adc.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Can.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Can.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Crcu.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Crcu.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Dio.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Dio.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Eep.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Eep.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Eth.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Eth.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Fee.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Fee.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Fls.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Fls.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Fr.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Fr.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Gpt.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Gpt.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_I2c.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_I2c.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Icu.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Icu.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Iseled.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Iseled.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Lin.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Lin.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Mcem.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Mcem.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Mcl.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Mcl.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Mcu.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Mcu.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Ocu.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Ocu.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Port.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Port.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Pwm.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Pwm.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_RamTst.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_RamTst.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Spi.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Spi.c</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\MCAL_Code\Rte\src\SchM_Wdg.c</name>
+                    <name>$PROJ_DIR$\MCAL_Code\SchM\src\SchM_Wdg.c</name>
                 </file>
             </group>
         </group>
