@@ -24,7 +24,7 @@
                 <a:a name="IMPORTER_INFO" value="@DEF"/>
               </d:var>
               <d:ctr name="McuGeneralConfiguration" type="IDENTIFIABLE">
-                <d:var name="McuDevErrorDetect" type="BOOLEAN" value="true"/>
+                <d:var name="McuDevErrorDetect" type="BOOLEAN" value="false"/>
                 <d:var name="McuVersionInfoApi" type="BOOLEAN" value="false">
                   <a:a name="IMPORTER_INFO" value="@DEF"/>
                 </d:var>

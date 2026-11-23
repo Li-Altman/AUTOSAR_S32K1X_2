@@ -1149,3 +1149,685 @@ SP (sfe(CSTACK))        = 0x2001_F000
 ---
 
 *本文由代码与当前构建产物静态分析生成；地址/数值以 `Debug/List/S32K1X_Project.map` 与 `Debug/Exe/S32K1X_Project.out` 为准。*
+
+---
+
+## 13. 补充：`Reset_Handler` 的地址是怎么确定的（`0x1329` / `0x1369`）
+
+> 说明：第 4 章里写的 `Reset_Handler = 0x1328`、向量表 `0x0000_1329`，是**当时那一次构建**的值。代码改动后链接地址会变；当前构建已经是 `0x1368` / `0x0000_1369`。方法相同，数值以当前 `.map/.out/.hex` 为准。
+
+`0x0000_1329` 不是猜的，是从**向量表里读出来的**。方法有三种，结果完全一致。
+
+### 13.1 方法一：直接看向量表（最直接）
+
+向量表第 0 项在 `0x0000_0000`（初始 SP），第 1 项在 `0x0000_0004`（复位入口）。用 `objdump` 看 `.out` 的 `A0` 段：
+
+```bash
+arm-none-eabi-objdump -s -j A0 --start-address=0 --stop-address=0x20 \
+    Debug/Exe/S32K1X_Project.out
+```
+
+当前构建输出：
+
+```text
+ 0000 00f00120 69130000 e7130000 7b140000
+ 0010 87140000 91150000 dd150000 00000000
+```
+
+按小端解析：
+
+| 地址 | 字节 | 32 位值 | 含义 |
+|---|---|---|---|
+| `0x0000` | `00 F0 01 20` | `0x2001_F000` | 初始 SP |
+| `0x0004` | `69 13 00 00` | `0x0000_1369` | **Reset 向量** |
+| `0x0008` | `E7 13 00 00` | `0x0000_13E7` | NMI |
+| `0x000C` | `7B 14 00 00` | `0x0000_147B` | HardFault |
+| `0x0010` | `87 14 00 00` | `0x0000_1487` | MemManage |
+| `0x0014` | `91 15 00 00` | `0x0000_1591` | BusFault |
+
+> 之前文档里写的是 `0x1329`，那是**当时那一次构建**的值；代码改动后链接地址会变，当前构建已经变成 `0x1369`。方法一样，数值要以当前 `.map/.out/.hex` 为准。
+
+### 13.2 方法二：看符号表（确认真实函数地址）
+
+```bash
+arm-none-eabi-nm Debug/Exe/S32K1X_Project.out | grep -i Reset_Handler
+```
+
+当前输出：
+
+```text
+00001368 W Reset_Handler
+```
+
+`nm` 显示的是**真实指令地址** `0x1368`。向量表里写的是 `0x1369`，只差最低位。
+
+### 13.3 方法三：看 HEX 文件（第一条记录）
+
+```text
+:10 0000 00 00F00120 69130000 E7130000 7B140000
+```
+
+`:10` = 16 字节数据，`0000` = 起始地址 0，`00` = 数据记录类型；数据部分就是：
+
+```text
+0x0000: 00 F0 01 20  ->  0x2001F000
+0x0004: 69 13 00 00  ->  0x00001369
+```
+
+也可以直接看 `startup_S32K148.S`：
+
+```asm
+__vector_table
+        DCD     sfe(CSTACK)
+        DCD     Reset_Handler      ; ← 链接器把这里填成 Reset_Handler 的地址
+```
+
+### 13.4 为什么向量表是 `0x1369`，而函数地址是 `0x1368`？
+
+因为 **Cortex-M 只支持 Thumb 指令集**。函数指针/向量表项的最低位 `bit0` 用来表示“目标处于 Thumb 状态”：
+
+- `0x1368`：真实指令地址（bit0 = 0）；
+- `0x1369`：`0x1368 | 1`，向量表/函数指针使用的“Thumb 地址”（bit0 = 1）。
+
+CPU 从向量表取到 `0x1369` 后，会自动清掉 bit0 从 `0x1368` 开始取指（进入 Thumb 状态）。所以：
+
+```text
+向量表 [0x0004] = 0x00001369
+实际 Reset_Handler 代码 = 0x00001368
+```
+
+反汇编也验证了这一点：
+
+```text
+00001368 <Reset_Handler>:
+    1368: b672        cpsid   i
+    136a: 2100        movs    r1, #0
+    ...
+```
+
+> 同理，之前那一次构建是：向量表 `0x0000_1329`，真实代码 `0x0000_1328`。
+
+### 13.5 在 IAR 里怎么自己看
+
+1. **Memory 窗口**：地址填 `0x00000000`，格式选 32-bit，前两个 word 就是 SP 和 Reset 向量。
+2. **Disassembly 窗口**：直接看 `0x00000004` 处的内容，或按符号 `Reset_Handler` 跳转。
+3. **`.map` 文件**：`Debug/List/S32K1X_Project.map` 里搜 `Reset_Handler`/`__vector_table`，可看到符号地址和段布局。
+4. **HEX 文件**：`Debug/Exe/S32K1X_Project.hex` 第一条数据记录。
+
+### 13.6 小结
+
+> `0x0000_1329`（或当前构建的 `0x0000_1369`）来自 **Flash `0x0000_0004` 处的向量表内容**，而 `0x1328`（或 `0x1368`）是去掉 Thumb 位后的真实函数地址。两者相差 1，是 Cortex-M Thumb 状态的约定，不是链接错误。
+>
+> 另外，链接地址**不是固定不变的**：只要增删代码、改优化等级或改链接文件，`Reset_Handler`、`SystemInit`、`init_data_bss`、`main` 等地址都可能变化；分析时必须使用**当前这次构建**的 `.map/.out`，不要沿用旧文档里的数值。
+
+---
+
+## 14. 补充问答：WDOG、向量表宏、`SystemCoreClockUpdate`、RAM 向量表与内存分布
+
+### 14.1 为什么 `SystemInit()` 里要关看门狗？不关有什么后果？是芯片内部的狗吗？
+
+#### 14.1.1 是芯片内部的看门狗
+
+是 **S32K148 片内 WDOG 模块**（RM 第 23 章，基址 `0x4005_2000`），不是外部看门狗芯片。
+
+寄存器：
+
+| 偏移 | 寄存器 | 作用 |
+|---:|---|---|
+| `0x00` | `WDOG_CS` | 控制/状态：使能、时钟源、预分频、窗口、中断、调试/等待/停止模式行为 |
+| `0x04` | `WDOG_CNT` | 计数器；也用于解锁/喂狗命令序列 |
+| `0x08` | `WDOG_TOVAL` | 超时值 |
+| `0x0C` | `WDOG_WIN` | 窗口值（窗口模式下使用） |
+
+`WDOG_CS` 关键位：
+
+| 位 | 名称 | 含义 |
+|---:|---|---|
+| 15 | `WIN` | 窗口模式使能（write-once） |
+| 13 | `CMD32EN` | 支持 32 位解锁/刷新命令（write-once，复位为 1） |
+| 12 | `PRES` | 256 预分频（write-once） |
+| 11 | `ULK` | 解锁状态（只读） |
+| 10 | `RCS` | 重配置成功（只读） |
+| 9-8 | `CLK` | 时钟源（LPO/SIRC/SOSC/BUS，write-once） |
+| 7 | `EN` | 看门狗使能（write-once） |
+| 6 | `INT` | 超时先产生中断再复位（write-once） |
+| 5 | `UPDATE` | 允许更新配置 |
+| 3 | `DBG` | 调试模式下是否继续运行（write-once，复位 0 = 调试停住时狗停） |
+| 2/1 | `WAIT`/`STOP` | 等待/停止模式下是否继续运行 |
+
+#### 14.1.2 复位后的默认状态：约 8 ms 就复位
+
+S32K148 上电复位后：
+
+- `WDOG_CS` 复位值 = `0x0000_2980`：`EN=1`（看门狗已开启）、`CLK=01`（`LPO128K_CLK`）、`CMD32EN=1`；
+- `WDOG_TOVAL` 复位值 = `0x0000_0400`；
+- RM 23.1.3 明确：
+
+> Following initial power on the watchdog is clocked by the `LPO128K_CLK` and will issue a timeout after 1024 cycles. This results in the Watchdog timeout being generated after approximately **8 ms**, which will force a MCU reset.
+
+即：**上电后如果不管它，约 8 ms 后 MCU 会被强制复位。**
+
+#### 14.1.3 为什么 `SystemInit()` 里要关狗
+
+`SystemInit()` 在 `Reset_Handler` 最早期执行（ECC 初始化之前），此时：
+
+- 栈、`.data/.bss`、`.mcal_data` 还没初始化；
+- 系统时钟还是复位默认值；
+- 应用的主循环、喂狗任务都还不存在。
+
+如果不在 `SystemInit()` 里先关掉 WDOG，MCU 会在启动阶段（还没到 `main`，或者刚到 `Mcu_Init()`/`Mcu_InitClock()`）就被 8 ms 超时复位，表现为：
+
+- 程序“跑飞”、反复重启；
+- 调试器停在某个函数（例如 `Mcu_SIM_ClockConfig` 第 274 行）附近；
+- LED 不闪或闪一下就灭。
+
+所以 NXP SDK 的 `SystemInit()` 默认会执行：
+
+```c
+WDOG->CNT = 0xD928C520U;      /* 32 位解锁 */
+(void)WDOG->CNT;               /* 空读，确保解锁完成 */
+WDOG->CS  = (1UL << 13)        /* CMD32EN */
+          | (1UL << 8)         /* CLK = LPO */
+          | (1UL << 5);        /* UPDATE = 1，EN = 0 关闭看门狗 */
+WDOG->TOVAL = 0xFFFFU;
+```
+
+当前构建的 `SystemInit` 反汇编写的是 `WDOG->CS = 0x2120`，对应 `CMD32EN=1`、`CLK=LPO`、`UPDATE=1`、`EN=0`，即**关闭**。
+
+#### 14.1.4 不关的后果
+
+| 场景 | 结果 |
+|---|---|
+| 完全不关、也不喂 | 约 8 ms 复位，程序无法正常运行 |
+| 关掉后一直不启用 | 程序正常，但没有看门狗保护（安全相关产品不推荐） |
+| 关掉后在应用里重新配置并周期喂狗 | 正常，且具备看门狗保护 |
+
+#### 14.1.5 应该怎么用、什么时候开
+
+WDOG 的配置位是 **write-once**，要改必须先解锁。基本流程：
+
+1. **解锁**（二选一）：
+   - 16 位命令：先写 `0xC520` 到 `CNT`，再写 `0xD928` 到 `CNT`；
+   - 32 位命令（`CMD32EN=1` 时）：写 `0xD928C520` 到 `CNT`。
+2. **在 128 个总线周期内**写 `CS`（选择时钟源、预分频、窗口、中断、调试/等待/停止行为、`UPDATE=1`、`EN`）。
+3. 写 `TOVAL`（以及窗口模式下的 `WIN`）。
+4. 使能 `EN=1`。
+5. **周期喂狗**（二选一）：
+   - 16 位：先写 `0xA602` 到 `CNT`，再写 `0xB480` 到 `CNT`；
+   - 32 位：写 `0xB480A602` 到 `CNT`。
+
+超时时间估算：
+
+```text
+超时 = TOVAL × (PRES ? 256 : 1) / WDOG时钟频率
+```
+
+例如：时钟 `LPO128K = 128 kHz`、`PRES=0`、`TOVAL=0x400`：
+
+```text
+0x400 / 128000 = 1024 / 128000 ≈ 8 ms
+```
+
+**什么时候开：**
+
+- 系统时钟已经稳定（`Mcu_InitClock()` + `Mcu_DistributePllClock()` 之后）；
+- 应用初始化完成，已经有周期性喂狗的地方（主循环、定时器中断、OS Task）；
+- 或者由 AUTOSAR 的 `Wdg` / `WdgM` 模块统一管理（本工程目前没有 Wdg 驱动，所以只关了狗、没有使用）。
+
+**调试注意：** `DBG` 位复位为 0，表示“调试模式（CPU 被 halt）时看门狗停止”；但调试器**全速运行**时狗仍然在跑。如果单步调试时间很长，建议临时关狗或把 `DBG` 置 1。
+
+**判断是否被狗复位：** 读 `RCM->SRS`（`0x4007_F008`）的 `WDOG` 位（`0x20`），或调用 `Mcu_GetResetReason()` 看是否返回 `MCU_WATCHDOG_RESET`。
+
+---
+
+### 14.2 `__flash_vector_table__` 和 `__ICCARM__` 不定义有问题吗？需要定义吗？
+
+#### 14.2.1 `__ICCARM__`：编译器内置宏，不要手动定义
+
+`__ICCARM__` 是 **IAR C/C++ Compiler 自动定义**的内置宏，用来区分编译器。`startup.c` 里：
+
+```c
+#if defined(__ICCARM__)
+    data_ram = __section_begin(".data");
+    ...
+#elif defined(__ARMCC_VERSION)
+    ...
+#else
+    /* GCC/GHS 等 */
+    ...
+#endif
+```
+
+- **不需要手动定义**；编译器会自动加；
+- **不要手动取消**：否则 `startup.c` 会走 GCC/其它分支，使用 `__DATA_ROM/__BSS_START` 等 IAR 链接文件里不存在的符号，编译/链接失败；
+- **不要手动定义成其它值**：没有意义，还可能和编译器内置定义冲突。
+
+类似的内置宏还有 `__GNUC__`（GCC）、`__ARMCC_VERSION`（Keil）、`__IAR_SYSTEMS_ICC__` 等，都由工具链自动管理。
+
+#### 14.2.2 `__flash_vector_table__`：可选的链接器符号
+
+它不是 C 宏，而是 **IAR 链接器（ILINK）的符号**，在 `.icf` 里用 `isdefinedsymbol()` 判断：
+
+```text
+define symbol __ram_vector_table_size__ =
+    isdefinedsymbol(__flash_vector_table__) ? 0 : 0x00000400;
+...
+define exported symbol __VECTOR_RAM =
+    isdefinedsymbol(__flash_vector_table__) ? m_interrupts_start : m_interrupts_ram_start;
+```
+
+两种行为：
+
+| 是否定义 `__flash_vector_table__` | `__VECTOR_RAM` | `__RAM_VECTOR_TABLE_SIZE` | `init_data_bss` 行为 | VTOR |
+|---|---:|---:|---|---|
+| **不定义（当前工程）** | `0x1FFE_0000` | `0x400` | 把向量表从 `0x0` 复制到 `0x1FFE_0000` | `0x1FFE_0000`（RAM） |
+| 定义 | `0x0`（= `__VECTOR_TABLE`） | `0` | 不复制 | `0x0`（Flash） |
+
+- **不定义有问题吗？** 没有。当前工程就是不定义，`init_data_bss()` 会把向量表复制到 RAM 并设置 `VTOR`，功能正常。
+- **需要定义吗？** 看需求：
+  - 想省 1 KB RAM、减少启动复制时间、向量表只读更安全 → 可以定义；
+  - 需要运行时动态安装/替换中断处理函数（`INT_SYS_InstallHandler`）、Bootloader/APP 向量重映射、RTOS 动态挂中断 → **不要定义**，必须让向量表在 RAM。
+- **怎么定义：** IAR `Project → Options → Linker → Config → Defined symbols` 加 `__flash_vector_table__=1`，或命令行 `--define_symbol __flash_vector_table__=1`。
+- **注意：** 定义后 `INT_SYS_InstallHandler` 之类的函数无法再改向量（Flash 只读）；同时 `init_data_bss` 的 `if (__VECTOR_RAM != __VECTOR_TABLE)` 会走 `else` 分支，把 `VTOR` 指向 `0x0`，代码已兼容。
+
+#### 14.2.3 三个层次不要混
+
+| 符号 | 谁定义 | 作用 |
+|---|---|---|
+| `__ICCARM__` | IAR 编译器自动 | 选择 IAR 编译分支 |
+| `__NO_SYSTEM_INIT`、`START_FROM_FLASH` | 用户在 **Assembler → Defined symbols** 里定义 | 控制 `startup_S32K148.S` 是否调用 `SystemInit`、是否做 ECC 初始化 |
+| `__flash_vector_table__` | 用户在 **Linker → Defined symbols** 里定义 | 控制向量表放 Flash 还是复制到 RAM |
+
+---
+
+### 14.3 `SystemCoreClockUpdate` 应该怎么用？只放在 `Mcu_Init` 里不行吗？
+
+#### 14.3.1 它做什么
+
+`SystemCoreClockUpdate()` 只做一件事：**读 SCG 寄存器，重新计算 `SystemCoreClock` 这个全局变量**（当前 CORE_CLK 频率）。它**不配置任何硬件**。
+
+大致逻辑（`system_S32K148.c`）：
+
+```c
+divider = ((SCG->CSR & SCG_CSR_DIVCORE_MASK) >> SCG_CSR_DIVCORE_SHIFT) + 1U;
+switch ((SCG->CSR & SCG_CSR_SCS_MASK) >> SCG_CSR_SCS_SHIFT) {
+  case 0x1: /* SOSC  */ SCGOUTClock = CPU_XTAL_CLK_HZ; break;
+  case 0x2: /* SIRC  */ ... break;
+  case 0x3: /* FIRC  */ ... break;
+  case 0x6: /* SPLL  */
+      prediv = ((SCG->SPLLCFG & PREDIV_MASK) >> PREDIV_SHIFT) + 1U;
+      multi  = ((SCG->SPLLCFG & MULT_MASK)  >> MULT_SHIFT)  + 16U;
+      SCGOUTClock = CPU_XTAL_CLK_HZ * multi / (prediv * 2U);
+      break;
+}
+SystemCoreClock = SCGOUTClock / divider;
+```
+
+本工程：`DEFAULT_SYSTEM_CLOCK = 48000000`、`CPU_XTAL_CLK_HZ = 8000000`。
+
+#### 14.3.2 为什么不能只放在 `Mcu_Init` 里
+
+因为时序不对：
+
+```text
+Mcu_Init()          // 此时时钟还是复位默认 FIRC 48 MHz
+    ↓
+Mcu_InitClock()     // 这里才配置 SOSC/SPLL/PCC，把系统时钟切到 SPLL
+    ↓
+Mcu_DistributePllClock()
+    ↓
+（此时 CORE_CLK 才真正变成 80 MHz）
+```
+
+如果在 `Mcu_Init()` 里调用 `SystemCoreClockUpdate()`，读到的是 **48 MHz**（复位默认），之后时钟切到 80 MHz，`SystemCoreClock` 就过时了。
+
+#### 14.3.3 正确使用时机
+
+每次**系统时钟实际改变之后**调用一次：
+
+1. `Mcu_InitClock()` + 等待 PLL 锁定 + `Mcu_DistributePllClock()` 之后；
+2. `Mcu_SetMode()` 切换 RUN/HSRUN/VLPR 之后（如果该模式改变频率）；
+3. 任何直接改 SCG/PCC 的代码之后。
+
+建议的 `main()` 顺序：
+
+```c
+(void)Mcu_InitClock(McuClockSettingConfig_0);
+while ((MCU_PLL_LOCKED != Mcu_GetPllStatus()) && (u32Timeout > 0U)) { u32Timeout--; }
+if (MCU_PLL_LOCKED == Mcu_GetPllStatus())
+{
+    (void)Mcu_DistributePllClock();
+}
+SystemCoreClockUpdate();          /* 此时才是 SPLL -> CORE_CLK 的真实频率 */
+
+Mcu_SetMode(McuModeSettingConf_0);
+SystemCoreClockUpdate();          /* 如果模式切换改变频率，再更新一次 */
+```
+
+#### 14.3.4 注意事项
+
+- `SystemCoreClockUpdate()` 只是“读寄存器算频率”，**不校验时钟是否真的锁定**；如果 SPLL 没锁、`RCCR` 没切成功，它算出来的仍是当前实际时钟（可能是 48 MHz）。所以要先确认 `Mcu_GetPllStatus() == MCU_PLL_LOCKED`。
+- 它也不是“只能在 `Mcu_Init` 用”；恰恰相反，**不应该只在 `Mcu_Init` 用**。
+- 如果应用里用 `SystemCoreClock` 做延时/波特率/定时器计算，时钟切换后一定要重新调用，否则计算全错。
+- 本工程的 `Main_Delay` 是纯循环延时，没有用 `SystemCoreClock`，所以即使不调用也不会“跑飞”，但延时时间会随主频变化。
+
+---
+
+### 14.4 为什么要把向量表复制到 RAM 中？
+
+Cortex-M 的 `VTOR` 可以指向 Flash，也可以指向 RAM。复制到 RAM 的目的：
+
+1. **运行时可修改中断向量**：
+   - `INT_SYS_InstallHandler()` 动态安装/替换 ISR；
+   - Bootloader/APP 向量重映射（APP 把自己的向量表放到 RAM，`VTOR` 指向它）；
+   - RTOS/协议栈在运行时挂接中断。
+2. **调试/升级方便**：可以从 RAM 运行、打补丁、替换处理函数，而不需要擦写 Flash。
+3. **一致性**：如果代码本身要从 RAM 执行（调试或 bootloader），向量表也应在 RAM。
+
+不复制（留在 Flash）的好处：
+
+- 省 1 KB RAM；
+- 启动少一次 0x400 字节复制；
+- 向量表只读，安全性更高（不会被非法改写）。
+
+当前工程：`__flash_vector_table__` 未定义 → 复制到 `0x1FFE_0000`，`VTOR = 0x1FFE_0000`。复制在 `init_data_bss()` 中完成，且在 `CPSIE I` 之前，保证开中断前 RAM 向量表已就绪。
+
+代价：占用 `0x1FFE_0000~0x1FFE_03FF` 共 1 KB SRAM_L；RAM 向量表可被非法代码改写（安全等级略低）。
+
+---
+
+### 14.5 内存分布总览（ICF + 启动文件 + 当前 map）
+
+#### 14.5.1 当前构建的实际布局
+
+> 以下数值取自当前 `Debug/List/S32K1X_Project.map`（Debug 构建）。代码改动后地址会变，方法不变。
+
+```text
+Flash（1.5 MB，0x0000_0000 ~ 0x0017_FFFF）
+┌──────────────────────────────────────────────┐ 0x0000_0000
+│ .intvec 向量表（256 × 4 = 0x400）             │
+├──────────────────────────────────────────────┤ 0x0000_0400
+│ FlashConfig（FCF，0x10）                      │
+├──────────────────────────────────────────────┤ 0x0000_0410
+│ .text / .rodata / .mcal_const_cfg / init table│
+│   .iar.init_table      0x1410 ~ 0x1433 (0x24) │
+│   RW 初值字节          0x1580 ~ 0x158F (0x10) │
+│   ……                                         │
+│ 代码/常量结束          0x15E5                 │
+├──────────────────────────────────────────────┤ 0x0000_15E6
+│ 未使用（0x17EA1A 字节）                       │
+└──────────────────────────────────────────────┘ 0x0017_FFFF
+
+SRAM_L（128 KB，0x1FFE_0000 ~ 0x1FFF_FFFF）
+┌──────────────────────────────────────────────┐ 0x1FFE_0000
+│ RAM 向量表（0x400）                           │
+├──────────────────────────────────────────────┤ 0x1FFE_0400
+│ RW / .mcal_data（0x10）                       │
+│   Mcu_pConfigPtr    0x1FFE_0400               │
+│   Mcu_pClockConfig  0x1FFE_0404               │
+│   Port_pConfig      0x1FFE_0408               │
+│   Mcu_eStatus       0x1FFE_040C               │
+├──────────────────────────────────────────────┤ 0x1FFE_0410
+│ 未使用                                         │
+└──────────────────────────────────────────────┘ 0x1FFF_FFFF
+
+SRAM_U（ICF 使用 0x2000_0000 ~ 0x2001_EFFF）
+┌──────────────────────────────────────────────┐ 0x2000_0000
+│ .mcal_bss（0x2）                              │
+│   Mcu_au8ClockConfigIds 0x2000_0000           │
+│   Mcu_au8ModeConfigIds  0x2000_0001           │
+├──────────────────────────────────────────────┤ 0x2000_0002
+│ 对齐填充（0x2）                               │
+├──────────────────────────────────────────────┤ 0x2000_0004
+│ .bss（0x9）                                   │
+│   Main_Delay::u32Count 0x2000_0004            │
+│   Det 变量             0x2000_0008 ~ 0x2000_000C│
+├──────────────────────────────────────────────┤ 0x2000_000D
+│ 未使用（含未分配的 HEAP 区）                  │
+│ 0x2000_000D ~ 0x2001_EBFF                     │
+├──────────────────────────────────────────────┤ 0x2001_EC00
+│ CSTACK 栈（0x400）                            │
+│   栈顶 SP = 0x2001_F000（向下生长）           │
+├──────────────────────────────────────────────┤ 0x2001_F000
+│ ICF 未使用（0x2001_F000 ~ 0x2001_FFFF）       │
+└──────────────────────────────────────────────┘ 0x2001_FFFF
+```
+
+#### 14.5.2 区域与启动动作对照
+
+| 区域 | 地址范围 | 大小 | 内容 | 谁负责初始化 |
+|---|---:|---:|---|---|
+| `.intvec` | `0x0000_0000~0x0000_03FF` | 0x400 | Flash 向量表 | 链接器（`place at address`） |
+| `FlashConfig` | `0x0000_0400~0x0000_040F` | 0x10 | FCF（FSEC/FOPT/FPROT 等） | 链接器 |
+| `TEXT_region` | `0x0000_0410~0x0017_FFFF` | — | 代码/常量/init table | 链接器 + Flash 下载 |
+| `RW`（`.mcal_data`） | `0x1FFE_0400~0x1FFE_040F` | 0x10 | 已初始化驱动变量 | **应由 IAR init table 复制**（当前未执行） |
+| `m_interrupts_ram_region` | `0x1FFE_0000~0x1FFE_03FF` | 0x400 | RAM 向量表 | `init_data_bss()` 从 `0x0` 复制 |
+| `DATA_region` | `0x1FFE_0400~0x1FFF_FFFF` | — | RW + 预留 | 链接器 + init table |
+| `ZI`（`.mcal_bss` + `.bss`） | `0x2000_0000~0x2000_000C` | 0xD | 零初始化变量 | ECC 初始化 + `init_data_bss()` 清 `.bss` |
+| `DATA_region_2` | `0x2000_0000~0x2001_EBFF` | — | ZI / custom / HEAP | 链接器 |
+| `HEAP`（ICF 定义 1 KB） | 若分配：`0x2001_E800~0x2001_EBFF` | 0x400 | malloc 堆 | 当前未分配（无 malloc 调用） |
+| `CSTACK_region` / `CSTACK` | `0x2001_EC00~0x2001_EFFF` | 0x400 | 栈 | `Reset_Handler` 设 `SP = 0x2001_F000` |
+| `__RAM_START~__RAM_END` | `0x1FFE_0000~0x2001_EFFF` | — | ECC 初始化范围 | `Reset_Handler` 全部写 0 |
+
+#### 14.5.3 启动阶段对内存的写入顺序
+
+```text
+1. 硬件：SP = [0x0] = 0x2001_F000；PC = [0x4] = Reset_Handler
+2. Reset_Handler:
+   - CPSID I
+   - 若未定义 __NO_SYSTEM_INIT：SystemInit()（关 WDOG）
+   - 若定义了 START_FROM_FLASH：
+       把 0x1FFE_0000 ~ 0x2001_EFFF 全部写 0（ECC 初始化）
+   - SP = sfe(CSTACK) = 0x2001_F000
+   - init_data_bss():
+       * 复制 .data / __CODE_ROM / .customSection（当前均为空）
+       * 清 .bss（0x2000_0004 ~ 0x2000_000C）
+       * 复制向量表 0x0 ~ 0x3FF -> 0x1FFE_0000 ~ 0x1FFE_03FF
+       * VTOR = 0x1FFE_0000
+   - CPSIE I
+   - BL main
+3. main():
+   - Det_Init()
+   - Mcu_Init()
+   - Mcu_InitClock()
+   - ...
+```
+
+> 注意：IAR 的 init table（`0x1580 -> 0x1FFE_0400`，用于 `.mcal_data`）本应由 `__iar_data_init3()` 执行，但当前 `Reset_Handler` 直接调用了 `main`，没有走 `?main/__iar_program_start`，所以这张表**没有执行**；这正是 `Mcu_eStatus` 上电为 0 的原因（详见《MCU 驱动状态机与 DET 分析》文档）。
+
+#### 14.5.4 关于 HEAP 的说明
+
+ICF 里定义了：
+
+```text
+define block HEAP with alignment = 8, size = __size_heap__ { };
+place in DATA_region_2 { last block HEAP };
+```
+
+默认 `__size_heap__ = 0x400`。如果应用调用 `malloc/free`，IAR 会把 HEAP 放在 `DATA_region_2` 的**最后**，即 `0x2001_E800~0x2001_EBFF`（紧贴栈下方）。
+
+当前工程的 map 里没有看到 HEAP 被分配（应用没有调用内存分配函数，链接器选择了 basic heap），所以 `0x2000_000D~0x2001_EBFF` 目前是未使用区。若以后使用 `malloc`，它会占用 `0x2001_E800~0x2001_EBFF`。
+
+#### 14.5.5 一句话记忆
+
+```text
+Flash:  0x0000_0000 向量表 → 0x0000_0400 FCF → 0x0000_0410 代码
+SRAM_L: 0x1FFE_0000 RAM 向量表 → 0x1FFE_0400 .mcal_data → 0x1FFE_0410 空闲
+SRAM_U: 0x2000_0000 .mcal_bss/.bss → 0x2000_000D 空闲 → 0x2001_EC00 栈(顶 0x2001_F000)
+```
+
+---
+
+## 15. 补充小结
+
+| 问题 | 结论 |
+|---|---|
+| 为什么 `SystemInit` 里关狗？ | S32K148 片内 WDOG 复位后默认开启，约 8 ms 超时；启动阶段来不及喂狗，必须先关，之后由应用按需重新配置/使能/喂狗。 |
+| `__ICCARM__` 要定义吗？ | 不要，IAR 编译器自动定义；手动定义/取消会破坏 `startup.c` 的编译分支。 |
+| `__flash_vector_table__` 要定义吗？ | 可选。不定义（当前）= 向量表复制到 RAM，支持动态改向量；定义 = 留在 Flash，省 1 KB RAM 但不能动态改向量。 |
+| `SystemCoreClockUpdate` 怎么用？ | 只在时钟**实际改变之后**调用（`Mcu_InitClock` + `Mcu_DistributePllClock` 之后、`Mcu_SetMode` 之后）；不能只放在 `Mcu_Init` 里，因为那时时钟还没配。 |
+| 为什么向量表复制到 RAM？ | 为了运行时可安装/替换中断处理函数、支持 Bootloader/APP 向量重映射、RTOS 动态挂中断；代价是 1 KB RAM 和复制时间。 |
+| 内存分布 | 见 14.5：Flash `0x0` 向量表、`0x400` FCF、`0x410` 代码；SRAM_L `0x1FFE_0000` RAM 向量表、`0x1FFE_0400` `.mcal_data`；SRAM_U `0x2000_0000` ZI、`0x2001_EC00` 栈（顶 `0x2001_F000`）。 |
+
+---
+
+## 16. 补充：ICF 符号与当前实际布局对照表
+
+> 目的：把 `m_interrupts_start`、`m_text_start`、`m_data_start` 等 ICF 内部符号，以及 `__VECTOR_TABLE`、`__VECTOR_RAM`、`__RAM_START` 等导出符号，全部对应到当前构建的实际地址上，方便和 `.map`、启动代码、调试器 Memory 窗口对照。
+>
+> 注意：地址会随代码/链接变化；下表取自**当前 Debug 构建**（`Debug/List/S32K1X_Project.map`）。
+
+### 16.1 ICF 符号总表
+
+#### 16.1.1 地址定义类符号（`define symbol` / `define exported symbol`）
+
+| ICF 符号 | 类型 | 当前值 | 计算/来源 | 用途 |
+|---|---|---:|---|---|
+| `__ram_vector_table_size__` | define symbol | `0x0000_0400` | 未定义 `__flash_vector_table__` → 0x400 | RAM 向量表大小 |
+| `__ram_vector_table_offset__` | define symbol | `0x0000_03FF` | 未定义 `__flash_vector_table__` → 0x3FF | 用于算 RAM 向量表结束地址 |
+| `m_interrupts_start` | define symbol | `0x0000_0000` | 固定 | Flash 向量表起点 |
+| `m_interrupts_end` | define symbol | `0x0000_03FF` | 固定 | Flash 向量表终点 |
+| `m_flash_config_start` | define symbol | `0x0000_0400` | 固定 | FCF 起点 |
+| `m_flash_config_end` | define symbol | `0x0000_040F` | 固定 | FCF 终点 |
+| `m_text_start` | define symbol | `0x0000_0410` | 固定 | 代码/常量区起点 |
+| `m_text_end` | define symbol | `0x0017_FFFF` | 固定（1.5 MB Flash） | 代码/常量区终点 |
+| `m_interrupts_ram_start` | define symbol | `0x1FFE_0000` | 固定 | RAM 向量表起点 |
+| `m_interrupts_ram_end` | define symbol | `0x1FFE_03FF` | `0x1FFE0000 + 0x3FF` | RAM 向量表终点 |
+| `m_data_start` | define symbol | `0x1FFE_0400` | `m_interrupts_ram_start + 0x400` | 普通数据区起点 |
+| `m_data_end` | define symbol | `0x1FFF_FFFF` | 固定 | SRAM_L 终点 |
+| `m_data_2_start` | define symbol | `0x2000_0000` | 固定 | SRAM_U 起点 |
+| `m_data_2_end` | define symbol | `0x2001_EFFF` | 固定（ICF 使用范围） | SRAM_U 使用终点 |
+| `__size_cstack__` | define symbol | `0x0000_0400` | 未定义 `__stack_size__` → 0x400 | 栈大小 |
+| `__size_heap__` | define symbol | `0x0000_0400` | 未定义 `__heap_size__` → 0x400 | 堆大小 |
+| `__VECTOR_TABLE` | **exported** | `0x0000_0000` | `= m_interrupts_start` | C/汇编可见：Flash 向量表地址 |
+| `__VECTOR_RAM` | **exported** | `0x1FFE_0000` | 未定义 `__flash_vector_table__` → `m_interrupts_ram_start` | C/汇编可见：RAM 向量表地址 |
+| `__RAM_VECTOR_TABLE_SIZE` | **exported** | `0x0000_0400` | `= __ram_vector_table_size__` | `init_data_bss` 复制次数 |
+| `__RAM_START` | **exported** | `0x1FFE_0000` | `= m_interrupts_ram_start` | ECC 初始化起点 |
+| `__RAM_END` | **exported** | `0x2001_EFFF` | `= m_data_2_end` | ECC 初始化终点 |
+
+> `define symbol` 只在 ICF 内部可见；`define exported symbol` 会生成链接符号，C/汇编里用 `extern` 或 `IMPORT` 引用（例如 `__VECTOR_RAM`、`__RAM_START`、`__RAM_END`）。
+
+#### 16.1.2 区域类符号（`define region`）
+
+| 区域符号 | 当前范围 | 计算/来源 | 说明 |
+|---|---:|---|---|
+| `m_flash_config_region` | `0x0000_0400 ~ 0x0000_040F` | `m_flash_config_start ~ end` | FCF |
+| `TEXT_region` | `0x0000_0000 ~ 0x0000_03FF` **并上** `0x0000_0410 ~ 0x0017_FFFF` | 向量表区 + 代码区 | 中间 `0x400~0x40F` 留给 FCF |
+| `DATA_region` | `0x1FFE_0400 ~ 0x1FFF_FFFF` | `m_data_start ~ m_data_end` | SRAM_L 的数据区 |
+| `DATA_region_2` | `0x2000_0000 ~ 0x2001_EBFF` | `m_data_2_start ~ (m_data_2_end - __size_cstack__)` | ZI / custom / HEAP |
+| `CSTACK_region` | `0x2001_EC00 ~ 0x2001_EFFF` | `(m_data_2_end - __size_cstack__ + 1) ~ m_data_2_end` | 栈区 |
+| `m_interrupts_ram_region` | `0x1FFE_0000 ~ 0x1FFE_03FF` | `m_interrupts_ram_start ~ end` | RAM 向量表区 |
+
+#### 16.1.3 块类符号（`define block`）
+
+| 块 | 当前放置地址 | 大小 | 说明 |
+|---|---:|---:|---|
+| `CSTACK` | `0x2001_EC00 ~ 0x2001_EFFF` | `0x400` | 栈；`sfe(CSTACK)=0x2001_F000` 作为初始 SP |
+| `HEAP` | 当前未分配（若用 malloc：`0x2001_E800 ~ 0x2001_EBFF`） | `0x400` | ICF 定义 1 KB，`last` 放在 `DATA_region_2` 末尾 |
+| `RW` | `0x1FFE_0400 ~ 0x1FFE_040F` | `0x10` | `.mcal_data` 等已初始化数据 |
+| `ZI` | `0x2000_0000 ~ 0x2000_000C` | `0xD` | `.mcal_bss` + `.bss` |
+| `customSectionBlock` | 空（未使用） | `0` | 用户自定义绝对地址数据 |
+| `__CODE_ROM` | `0x15E6`（空） | `0` | RAM 执行代码的 Flash 初值 |
+| `__CODE_RAM` | `0x1FFE_0410`（空） | `0` | 需搬到 RAM 执行的代码 |
+
+### 16.2 当前实际布局 + 符号标注
+
+```text
+Flash 0x0000_0000 ~ 0x0017_FFFF
+┌─────────────────────────────────────────────────────────────┐
+│ m_interrupts_start = 0x0000_0000                            │
+│ .intvec（向量表，0x400）                                     │
+│   [0x0] = SP = 0x2001_F000                                  │
+│   [0x4] = Reset_Handler = 0x0000_1369                       │
+│ m_interrupts_end   = 0x0000_03FF  (= 下一行 - 1)            │
+├─────────────────────────────────────────────────────────────┤
+│ m_flash_config_start = 0x0000_0400                          │
+│ FlashConfig（FCF，0x10）                                     │
+│ m_flash_config_end   = 0x0000_040F                          │
+├─────────────────────────────────────────────────────────────┤
+│ m_text_start = 0x0000_0410                                   │
+│ .text / .rodata / .mcal_const_cfg / .iar.init_table          │
+│   .iar.init_table   0x1410 ~ 0x1433                          │
+│   RW 初值字节       0x1580 ~ 0x158F                          │
+│ 实际代码/常量结束    0x15E5                                  │
+├─────────────────────────────────────────────────────────────┤
+│ 0x15E6 ~ 0x0017_FFFF 未使用                                  │
+│ m_text_end = 0x0017_FFFF                                     │
+└─────────────────────────────────────────────────────────────┘
+
+SRAM_L 0x1FFE_0000 ~ 0x1FFF_FFFF
+┌─────────────────────────────────────────────────────────────┐
+│ m_interrupts_ram_start = 0x1FFE_0000                         │
+│ RAM 向量表（0x400，__VECTOR_RAM）                             │
+│ m_interrupts_ram_end   = 0x1FFE_03FF                         │
+├─────────────────────────────────────────────────────────────┤
+│ m_data_start = 0x1FFE_0400                                   │
+│ RW / .mcal_data（0x10）                                      │
+│   Mcu_pConfigPtr    0x1FFE_0400                              │
+│   Mcu_pClockConfig  0x1FFE_0404                              │
+│   Port_pConfig      0x1FFE_0408                              │
+│   Mcu_eStatus       0x1FFE_040C                              │
+├─────────────────────────────────────────────────────────────┤
+│ 0x1FFE_0410 ~ 0x1FFF_FFFF 未使用                              │
+│ m_data_end = 0x1FFF_FFFF                                     │
+└─────────────────────────────────────────────────────────────┘
+
+SRAM_U 0x2000_0000 ~ 0x2001_FFFF（ICF 使用到 0x2001_EFFF）
+┌─────────────────────────────────────────────────────────────┐
+│ m_data_2_start = 0x2000_0000                                 │
+│ ZI（0xD）                                                    │
+│   .mcal_bss  0x2000_0000 ~ 0x2000_0001                       │
+│   .bss       0x2000_0004 ~ 0x2000_000C                       │
+├─────────────────────────────────────────────────────────────┤
+│ 0x2000_000D ~ 0x2001_EBFF 未使用                              │
+│   （DATA_region_2 的剩余部分；HEAP 若分配则在 0x2001_E800 ~ 0x2001_EBFF）│
+├─────────────────────────────────────────────────────────────┤
+│ CSTACK_region / CSTACK = 0x2001_EC00 ~ 0x2001_EFFF（0x400）   │
+│   栈顶 SP = sfe(CSTACK) = 0x2001_F000                          │
+├─────────────────────────────────────────────────────────────┤
+│ 0x2001_F000 ~ 0x2001_FFFF ICF 未使用                          │
+│ m_data_2_end = 0x2001_EFFF                                    │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### 16.3 符号 / 实际内容 / 启动动作对照
+
+| 符号或区域 | 当前地址 | 实际内容（当前构建） | 启动阶段谁操作 |
+|---|---:|---|---|
+| `m_interrupts_start` / `__VECTOR_TABLE` | `0x0000_0000` | `.intvec` 向量表 | `init_data_bss` 从这里复制到 RAM |
+| `m_flash_config_start` | `0x0000_0400` | `FlashConfig` FCF | 链接器放置，启动不操作 |
+| `m_text_start` | `0x0000_0410` | 代码/常量/init table | `Reset_Handler`/`main` 从这里取指 |
+| `m_text_end` | `0x0017_FFFF` | 未使用 | — |
+| `m_interrupts_ram_start` / `__VECTOR_RAM` | `0x1FFE_0000` | RAM 向量表 | `init_data_bss` 复制并设 `VTOR` |
+| `m_data_start` | `0x1FFE_0400` | `RW` / `.mcal_data` | 应由 IAR init table 复制（当前未执行） |
+| `m_data_end` | `0x1FFF_FFFF` | 未使用 | — |
+| `m_data_2_start` | `0x2000_0000` | `ZI`（`.mcal_bss` + `.bss`） | ECC 清零 + `init_data_bss` 清 `.bss` |
+| `__RAM_START` | `0x1FFE_0000` | ECC 初始化起点 | `Reset_Handler` 从这里开始写 0 |
+| `__RAM_END` | `0x2001_EFFF` | ECC 初始化终点 | `Reset_Handler` 写到这里 |
+| `CSTACK_region` / `CSTACK` | `0x2001_EC00 ~ 0x2001_EFFF` | 栈 | `Reset_Handler` 设 `SP=0x2001_F000` |
+| `HEAP` | 当前未分配（若用：`0x2001_E800 ~ 0x2001_EBFF`） | malloc 堆 | 运行时由 C 库管理 |
+
+### 16.4 启动代码里实际引用的 ICF 符号
+
+| 启动代码 | 引用的符号 | 当前值 | 用途 |
+|---|---|---:|---|
+| `startup_S32K148.S`：`DCD sfe(CSTACK)` | `CSTACK` 段结束 | `0x2001_F000` | 初始 SP |
+| `startup_S32K148.S`：`LDR R1,=__RAM_START` | `__RAM_START` | `0x1FFE_0000` | ECC 初始化起点 |
+| `startup_S32K148.S`：`LDR R2,=__RAM_END` | `__RAM_END` | `0x2001_EFFF` | ECC 初始化终点 |
+| `startup_S32K148.S`：`LDR R0,=sfe(CSTACK)` | `CSTACK` 段结束 | `0x2001_F000` | 再次设置 SP |
+| `startup.c`：`__section_begin(".data")` 等 | IAR 段符号 | 空/0 | 手动复制 `.data` 等 |
+| `startup.c`：`__VECTOR_TABLE` | `__VECTOR_TABLE` | `0x0000_0000` | 源向量表 |
+| `startup.c`：`__VECTOR_RAM` | `__VECTOR_RAM` | `0x1FFE_0000` | 目标向量表 |
+| `startup.c`：`__RAM_VECTOR_TABLE_SIZE` | `__RAM_VECTOR_TABLE_SIZE` | `0x0000_0400` | 复制 256 个向量 |
+| `startup.c`：`s_vectors[0]` | `&SCB->VTOR` | `0xE000_ED08` | 设置 VTOR |
+
+### 16.5 对照查看时的注意事项
+
+1. **`m_*` 是 ICF 内部符号**：在 C 代码里不能直接用（除非写成 `define exported symbol`）；调试器 Memory 窗口看地址即可，不必找符号。
+2. **`__*` 是导出符号**：`__VECTOR_TABLE`、`__VECTOR_RAM`、`__RAM_VECTOR_TABLE_SIZE`、`__RAM_START`、`__RAM_END` 可以在 `.map` 的 `ENTRY LIST` 里找到。
+3. **`m_interrupts_start` 恒为 0x0**：这是 Cortex-M 复位取 SP/PC 的要求，不能改。
+4. **`m_text_end` 是 Flash 物理上限 0x0017_FFFF**，不是实际代码末尾；实际代码末尾要看 `.map` 的最后一个 `.text/.rodata` 段（当前 `0x15E5`）。
+5. **`m_data_2_end = 0x2001_EFFF`** 是 ICF 自己选的上限；S32K148 的 SRAM_U 物理上到 `0x2001_FFFF`，最后 4 KB（`0x2001_F000~0x2001_FFFF`）未纳入链接范围。
+6. **`__flash_vector_table__` 会改变多个符号**：定义后 `__VECTOR_RAM=0x0`、`__RAM_VECTOR_TABLE_SIZE=0`、`m_interrupts_ram_end` 仍按 0x3FF 计算但不再使用；`init_data_bss` 会走 `else` 分支把 `VTOR` 设为 `0x0`。
+7. **地址随构建变化**：`RW`/`ZI` 的起始地址由 ICF 固定（`0x1FFE_0400`/`0x2000_0000`），但 `TEXT` 内部函数/常量的地址会随代码量变化；对照时以当前 `.map` 为准。
+
