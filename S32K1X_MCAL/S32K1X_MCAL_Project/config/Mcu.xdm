@@ -763,7 +763,7 @@
                         <a:a name="IMPORTER_INFO" value="@DEF"/>
                       </d:var>
                       <d:var name="McuSOSCClockMonitorEnable" type="BOOLEAN" 
-                             value="true"/>
+                             value="false"/>
                       <d:var name="McuSOSCDiv2" type="INTEGER" value="2"/>
                       <d:var name="McuSOSCDiv1" type="INTEGER" value="1">
                         <a:a name="IMPORTER_INFO" value="@DEF"/>
@@ -773,7 +773,7 @@
                         <a:a name="IMPORTER_INFO" value="@DEF"/>
                       </d:var>
                       <d:var name="McuSOSCHighGainOscillatorSelect" 
-                             type="BOOLEAN" value="true"/>
+                             type="BOOLEAN" value="false"/>
                       <d:var name="McuSOSCExternalReferenceSelect" 
                              type="BOOLEAN" value="false">
                         <a:a name="IMPORTER_INFO" value="@DEF"/>
@@ -897,7 +897,7 @@
                         <a:a name="IMPORTER_INFO" value="@DEF"/>
                       </d:var>
                       <d:var name="McuSPLLClockMonitorEnable" type="BOOLEAN" 
-                             value="true"/>
+                             value="false"/>
                       <d:var name="McuSPLLDiv2" type="INTEGER" value="4"/>
                       <d:var name="McuSPLLDiv1" type="INTEGER" value="4"/>
                       <d:var name="McuSPLLInputClkPreDivider" type="INTEGER" 

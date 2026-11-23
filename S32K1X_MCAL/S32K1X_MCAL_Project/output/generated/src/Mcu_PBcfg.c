@@ -365,7 +365,7 @@ static CONST( Mcu_SCG_RegisterConfigType, MCU_CONST) SOSC_ClockConfigPB0_0[MCU_N
         (
             SCG_SOSCCFG_HIGH_FREQ_RANGE_U32 |
             SCG_SOSCCFG_INTERNAL_OSCILLATOR_U32 |
-            SCG_SOSCCFG_HIGH_GAIN_OPERATION_U32
+            SCG_SOSCCFG_LOW_POWER_OPERATION_U32
         )
     },
     /* SCG_SOSCDIV settings. */
@@ -382,7 +382,7 @@ static CONST( Mcu_SCG_RegisterConfigType, MCU_CONST) SOSC_ClockConfigPB0_0[MCU_N
         (
              SCG_SOSCCSR_SOSC_ENABLE_U32 |
              SCG_SOSCCSR_SOSCCMRE_ISR_U32 |
-             SCG_SOSCCSR_SOSCCM_ENA_U32
+             SCG_SOSCCSR_SOSCCM_DIS_U32
          )
     }
 };
@@ -488,7 +488,7 @@ static CONST( Mcu_SCG_RegisterConfigType, MCU_CONST) SPLL_ClockConfigPB0_0[MCU_N
         (
              SCG_SPLLCSR_SPLL_ENABLE_U32 |
              SCG_SPLLCSR_SPLLCMRE_ISR_U32 |
-             SCG_SPLLCSR_SPLLCM_ENA_U32
+             SCG_SPLLCSR_SPLLCM_DIS_U32
         )
     }
 };

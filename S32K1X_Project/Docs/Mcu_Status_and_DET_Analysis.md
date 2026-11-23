@@ -790,3 +790,192 @@ while (mcal_bss_end != mcal_bss) { *mcal_bss++ = 0; }
 - `Mcu_InitClock()` 被误判为“已初始化”而放行，最终用 NULL/垃圾指针在 `Mcu_SIM_ClockConfig()` 第 274 行触发 BusFault。
 
 `MCU_DEV_ERROR_DETECT = ON` 只是把这套检查编译进来，从而**暴露**了 `.mcal_data` 未初始化的问题；关掉 DET 会把 `Mcu_eStatus`、`Mcu_HLDChecksEntry/Exit`、`Mcu_CheckInit*` 全部编译掉，所以程序“看起来正常”，但根因仍在。正确修复是让 `.mcal_data`/`.mcal_bss` 在 `main()` 之前完成初始化（例如调用 `__iar_data_init3()`）。
+
+---
+
+## 9. 补充：SCG 时钟监控/晶振增益配置为什么会让 `u32Count` 变慢
+
+> 现象：同一份 `Main_Delay()` 代码，只改下面两组 SCG 配置，`u32Count` 的增长速度差异巨大。
+>
+> - 第一组：`SCG_SOSCCFG_HIGH_GAIN_OPERATION_U32` + `SCG_SOSCCSR_SOSCCM_ENA_U32` + `SCG_SPLLCSR_SPLLCM_ENA_U32`（配合 `SOSCCMRE_ISR` / `SPLLCMRE_ISR`）
+> - 第二组：`SCG_SOSCCFG_LOW_POWER_OPERATION_U32` + `SCG_SOSCCSR_SOSCCM_DIS_U32` + `SCG_SPLLCSR_SPLLCM_DIS_U32`
+>
+> 第一组会使得 `u32Count` 更新特别慢。
+
+### 9.1 结论
+
+第一组不是把 `Main_Delay` 的循环变慢了，而是**把 CPU 主频降下来了**。最可能的情况是：
+
+```text
+第一组：SOSC/SPLL 没有正常起振/锁定
+        → RCCR 里“切换到 SPLL”被硬件忽略
+        → 系统时钟停留在 Mcu_SCG_DropSystemClockToSirc() 设置的 SIRC = 8 MHz
+        → 同样的 2,000,000 次循环，实际耗时变成 80 MHz 时的约 10 倍
+```
+
+第二组（LOW_POWER + 两个时钟监控关闭）让 SOSC/SPLL 正常锁定，系统切到 **SPLL 80 MHz**，所以 `u32Count` 看起来“正常快”。
+
+### 9.2 MCAL 切时钟的顺序决定了“切不过去就留在 SIRC”
+
+`Mcu_Ipw_InitClock()` 的实际顺序（`Mcu_IPW.c`）：
+
+```text
+Mcu_SIM_ClockConfig()
+    ↓
+Mcu_SCG_DropSystemClockToSirc()     // 先把系统时钟切到 SIRC = 8 MHz
+    ↓
+Mcu_SCG_SircInit()
+Mcu_SCG_FircInit()
+Mcu_SCG_SoscInit()                  // 配 SOSC，等待 SOSCVLD（有超时）
+Mcu_SCG_SpllInit()                  // 使能 SPLL（不等待锁定）
+    ↓
+Mcu_SCG_SystemClockInit()           // 写 RCCR：SCS = SPLL
+```
+
+关键是最后一步。RM 28.3.4 明确写了：
+
+> **Attempting to select a clock that is not valid will be ignored.**
+> Selecting a different clock source when in Run mode requires that clock source to be enabled first and be valid before system clocks are allowed to switch to that clock source.
+
+也就是说：
+
+- 如果此时 `SPLLVLD = 0`（SPLL 没有锁定），写 `RCCR.SCS = SPLL` **会被硬件忽略**；
+- 系统时钟仍然是上一步设置的 **SIRC（8 MHz）**；
+- `main()` 里虽然有等待 PLL 锁定的循环，但如果 PLL 一直不锁定，`Mcu_DistributePllClock()` 不会执行，时钟就永远停在 8 MHz。
+
+所以现象不是“循环慢了”，而是 **CPU 时钟从 80 MHz 掉到了 8 MHz，慢了 10 倍**。
+
+### 9.3 第一组为什么让 SPLL 锁不上
+
+第一组与第二组的差异有三处，其中两处是“时钟监控”，一处是“晶振驱动增益”：
+
+| 配置 | 第一组 | 第二组 |
+|---|---|---|
+| SOSCCFG | `HIGH_GAIN_OPERATION`（HGO=1） | `LOW_POWER_OPERATION`（HGO=0） |
+| SOSCCSR | `SOSCCM_ENA`（监控开） | `SOSCCM_DIS`（监控关） |
+| SPLLCSR | `SPLLCM_ENA`（监控开） | `SPLLCM_DIS`（监控关） |
+| `SOSCCMRE` / `SPLLCMRE` | `_ISR`（=0，中断） | 无所谓（监控已关） |
+
+#### 9.3.1 `HIGH_GAIN` 可能让 8 MHz 晶振不起振/不稳定
+
+板上是 **8 MHz 晶振（X1 8M，C28/C29 20 pF）**。`SCG_SOSCCFG[HGO]` 控制晶振振荡器的驱动增益：
+
+- `HGO=0`：低增益/低功耗模式，适合低 ESR、低频率晶振；
+- `HGO=1`：高增益模式，适合高 ESR 或高频率晶振。
+
+如果这颗 8 MHz 晶振按低功耗设计，强行用 `HIGH_GAIN` 可能导致：
+
+- 起振慢、振幅异常、频率不稳定；
+- 严重时根本不起振 → `SOSCVLD` 一直为 0；
+- SOSC 无效 → SPLL 没有参考时钟 → `SPLLVLD` 一直为 0；
+- `RCCR` 切 SPLL 被忽略 → 系统停在 SIRC 8 MHz。
+
+#### 9.3.2 时钟监控的配置不符合 RM 要求
+
+RM 28.1.3 明确：
+
+> When SPLL is enabled, both LOC and LOL must be configured as **reset only** (`SOSCCSR[SOSCCMRE]` and `SPLLCSR[SPLLCMRE]` must be **1** ...). The only exception is during standard clock switching ...
+
+第一组用的是 `SOSCCMRE_ISR` / `SPLLCMRE_ISR`（**0 = 中断**），同时监控又使能（`SOSCCM_ENA` / `SPLLCM_ENA`）。这是 RM 不推荐的组合。
+
+可能后果：
+
+- SPLL 启动/切换过程中一旦检测到 loss-of-lock，`SPLLERR` 置位；
+- 由于 `CMRE=0`，产生的是中断而不是复位；
+- 如果 SCG 中断没有使能，标志就一直挂着；如果使能了，`SCG_IRQHandler` 又是 `DefaultISR`（`B .`），会直接卡死；
+- 在“中断未处理”的情况下，SPLL 可能一直无法进入稳定有效状态，最终仍然停在 SIRC 8 MHz。
+
+第二组把两个监控都关掉，就不会有这个问题，SPLL 正常锁定。
+
+### 9.4 10 倍差异的来源
+
+当前配置：
+
+```text
+SOSC = 8 MHz
+SPLL: PREDIV=1, MULT=40 → 8 × 40 / 2 = 160 MHz
+DIVCORE = 2 → CORE_CLK = 80 MHz
+```
+
+如果切不到 SPLL，就停在 `Mcu_SCG_DropSystemClockToSirc()` 设置的：
+
+```text
+SIRC = 8 MHz
+```
+
+所以：
+
+```text
+80 MHz / 8 MHz = 10 倍
+```
+
+同样 `Main_Delay(2,000,000)`：
+
+- 80 MHz：约 0.2~0.4 s；
+- 8 MHz：约 2~4 s。
+
+这就是“`u32Count` 变化特别慢”的直接原因。
+
+### 9.5 怎么验证（很关键）
+
+在 `main()` 里 `Mcu_InitClock()` 之后，用调试器读 SCG 寄存器：
+
+| 寄存器 | 地址 | 要看的位 | 正常值 | 异常值 |
+|---|---:|---|---|---|
+| `SCG->CSR` | `0x4006_4010` | `SCS[27:24]` | `0x6`（SPLL） | `0x2`（SIRC） |
+| `SCG->SOSCCSR` | `0x4006_4100` | bit24 `SOSCVLD` | 1 | 0 |
+| `SCG->SOSCCSR` | `0x4006_4100` | bit26 `SOSCERR` | 0 | 1 |
+| `SCG->SPLLCSR` | `0x4006_4600` | bit24 `SPLLVLD` | 1 | 0 |
+| `SCG->SPLLCSR` | `0x4006_4600` | bit26 `SPLLERR` | 0 | 1 |
+| `SCG->RCCR` | `0x4006_4014` | `SCS[27:24]` | `0x6` | 写入后被忽略 |
+| `Mcu_GetPllStatus()` | — | — | `MCU_PLL_LOCKED` | `MCU_PLL_UNLOCKED` |
+
+还可以调用 `SystemCoreClockUpdate()` 后看 `SystemCoreClock`：
+
+- 正常：约 `80000000`；
+- 异常：`8000000`（SIRC）。
+
+### 9.6 建议
+
+#### 9.6.1 直接用第二组
+
+对于这块 8 MHz 晶振的板子，第二组是课程/原工程验证过的配置：
+
+```c
+SCG_SOSCCFG_HIGH_FREQ_RANGE_U32 |
+SCG_SOSCCFG_INTERNAL_OSCILLATOR_U32 |
+SCG_SOSCCFG_LOW_POWER_OPERATION_U32
+
+SCG_SOSCCSR_SOSC_ENABLE_U32 |
+SCG_SOSCCSR_SOSCCMRE_ISR_U32 |
+SCG_SOSCCSR_SOSCCM_DIS_U32
+
+SCG_SPLLCSR_SPLL_ENABLE_U32 |
+SCG_SPLLCSR_SPLLCMRE_ISR_U32 |
+SCG_SPLLCSR_SPLLCM_DIS_U32
+```
+
+#### 9.6.2 如果一定要开时钟监控
+
+按 RM 28.1.3：
+
+- 把 `SOSCCMRE` / `SPLLCMRE` 设为 **RESET**（=1），不要用 ISR（=0）；
+- 并遵循 RM 28.1.4/28.1.5 的时钟切换顺序；
+- 同时确认 SCG 错误中断/复位处理已经正确实现（当前 `SCG_IRQHandler` 是 `DefaultISR` 死循环，开中断前要先实现它）。
+
+#### 9.6.3 隔离测试
+
+如果想知道到底是 `HIGH_GAIN` 还是监控导致的，可以一次只改一项：
+
+1. `LOW_POWER` + 监控开（ISR）：看是否还慢；
+2. `HIGH_GAIN` + 监控关：看是否还慢。
+
+这样就能确定是晶振增益问题还是监控配置问题。
+
+### 9.7 总结
+
+- `u32Count` 慢**不是 `Main_Delay` 的问题**，循环代码在两组配置下完全一样；
+- 第一组导致 **SOSC/SPLL 没有正常锁定**，`RCCR` 切 SPLL 被硬件忽略，系统停在 **SIRC 8 MHz**；
+- 8 MHz 相对 80 MHz 正好慢 **10 倍**，所以看起来“特别慢”；
+- 第二组让 SPLL 正常锁定到 80 MHz，所以恢复正常；
+- 用 `SCG->CSR[SCS]`、`SOSCVLD`、`SPLLVLD`、`SOSCERR`、`SPLLERR` 就能直接确认。
