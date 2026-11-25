@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00045.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>ActiveEcuC</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-MODULE-CONFIGURATION-VALUES UUID="4c9d33e0-4322-4168-aa2c-ecbb91224857">
+          <SHORT-NAME>Resource</SHORT-NAME>
+          <ADMIN-DATA>
+            <SDGS>
+              <SDG GID="DV:CfgPostBuild">
+                <SD GID="DV:postBuildVariantSupport">false</SD>
+              </SDG>
+            </SDGS>
+          </ADMIN-DATA>
+          <DEFINITION-REF DEST="ECUC-MODULE-DEF">/TS_T40D2M10I1R0/Resource</DEFINITION-REF>
+          <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-PRE-COMPILE</IMPLEMENTATION-CONFIG-VARIANT>
+          <CONTAINERS>
+            <ECUC-CONTAINER-VALUE UUID="9df35cc7-5fad-42a9-b825-bb9d0caf3f2e">
+              <SHORT-NAME>ResourceGeneral</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Resource/ResourceGeneral</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-TEXTUAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Resource/ResourceGeneral/ResourceSubderivative</DEFINITION-REF>
+                  <VALUE>s32k148_lqfp144</VALUE>
+                </ECUC-TEXTUAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+            <ECUC-CONTAINER-VALUE UUID="4ecdaf49-23e8-4772-a5ba-f5e51a8c299e">
+              <SHORT-NAME>CommonPublishedInformation</SHORT-NAME>
+              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Resource/CommonPublishedInformation</DEFINITION-REF>
+              <PARAMETER-VALUES>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Resource/CommonPublishedInformation/ArReleaseMajorVersion</DEFINITION-REF>
+                  <VALUE>4</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Resource/CommonPublishedInformation/ArReleaseMinorVersion</DEFINITION-REF>
+                  <VALUE>2</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Resource/CommonPublishedInformation/ArReleaseRevisionVersion</DEFINITION-REF>
+                  <VALUE>2</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Resource/CommonPublishedInformation/ModuleId</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Resource/CommonPublishedInformation/SwMajorVersion</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Resource/CommonPublishedInformation/SwMinorVersion</DEFINITION-REF>
+                  <VALUE>0</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Resource/CommonPublishedInformation/SwPatchVersion</DEFINITION-REF>
+                  <VALUE>1</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+                <ECUC-NUMERICAL-PARAM-VALUE>
+                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Resource/CommonPublishedInformation/VendorId</DEFINITION-REF>
+                  <VALUE>43</VALUE>
+                </ECUC-NUMERICAL-PARAM-VALUE>
+              </PARAMETER-VALUES>
+            </ECUC-CONTAINER-VALUE>
+          </CONTAINERS>
+        </ECUC-MODULE-CONFIGURATION-VALUES>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

@@ -1,0 +1,72 @@
+2026-11-25 - 23:46:43
+Workflow 'Update workflow.' started.
+              Using DaVinci Configurator  5.18.37 SP1 (x86_64).
+ 23:46:43 - Action 'Validate workflow environment' started.
+ 23:46:43 - Action 'Validate dpa file' started.
+ 23:46:44 - Action 'Validate dpa file' successfully finished.
+ 23:46:44 - Action 'SLP conformance check' started.
+ 23:46:44 - Action 'SLP conformance check' successfully finished.
+ 23:46:44 - Action 'Validate workflow environment' successfully finished.
+ 23:46:44 - Action 'Input File Pre-Processing' started.
+ 23:46:44 - Action 'Input File Pre-Processing' successfully finished.
+ 23:46:45 - Action 'Create copy of the Project' started.
+              Copy project 'F:\PROJECT\AutoSARWorkSpace\AUTOSAR_S32K1X_2\S32K1X_Cfg' to 'C:\Users\UsrLi\AppData\Local\Temp\DaVinci\Cfg-1000351\Workflow\1795621605195-0'...
+              Adjusting DPA file of copied project...
+ 23:46:45 - Action 'Create copy of the Project' successfully finished.
+ 23:46:45 - Action 'Close Project' started.
+ 23:46:45 - Action 'Close Project' successfully finished.
+ 23:46:49 - Action 'Prepare DaVinci Developer update data' started.
+ 23:46:49 - Action 'Prepare DaVinci Developer update data' successfully finished.
+ 23:46:49 - Action 'Prepare System Extract' started.
+ 23:46:50 - Action 'Prepare System Extract' successfully finished.
+ 23:46:50 - Action 'Updating the project' started.
+ 23:46:52 - Action 'Create ECU configuration' started.
+ 23:46:55 - Action 'Import Project Standard Configuration' started.
+ 23:46:55 - Action 'Import modules' started.
+ 23:46:59 - Action 'Import modules' successfully finished.
+ 23:46:59 - Action 'Postprocessing' started.
+ 23:46:59 - Action 'Postprocessing' successfully finished.
+ 23:46:59 - Action 'Import Project Standard Configuration' successfully finished.
+ 23:47:00 - Action 'Create ECU configuration' successfully finished.
+ 23:47:00 - Action 'Update ECU configuration' started.
+ 23:47:00 - Action 'Update ECU configuration' started.
+              No Package path available for module configuration: /ActiveEcuC/Resource. Default /ActiveEcuC is used instead.
+              No Package path available for module configuration: /ActiveEcuC/Base. Default /ActiveEcuC is used instead.
+              No Package path available for module configuration: /ActiveEcuC/Mcu. Default /ActiveEcuC is used instead.
+              No Package path available for module configuration: /ActiveEcuC/vSet. Default /ActiveEcuC is used instead.
+              No Package path available for module configuration: /ActiveEcuC/Dio. Default /ActiveEcuC is used instead.
+              No Package path available for module configuration: /ActiveEcuC/Port. Default /ActiveEcuC is used instead.
+ 23:47:04 - Action 'Update ECU configuration' successfully finished.
+ 23:47:04 - Action 'Update ECU configuration' successfully finished.
+ 23:47:04 - Action 'Updating the project' successfully finished.
+ 23:47:04 - Action 'Adapt project file' started.
+ 23:47:04 - Action 'Adapt project file' successfully finished.
+ 23:47:04 - Action 'Generate update report' started.
+ 23:47:11 - Action 'Generate update report' successfully finished.
+ 23:47:11 - Action 'Execute Solving Actions' started.
+              Executing all Preferred-Solving-Actions...
+              All Preferred-Solving-Actions done.
+              Executing update specific Preferred-Solving-Actions...
+              Update specific Preferred-Solving-Actions done.
+ 23:47:14 - Action 'Execute Solving Actions' successfully finished.
+ 23:47:14 - Action 'Update DaVinci Developer Workspace' started.
+              25 Nov 2026 23:47:19 - Opening workspace 'C:\Users\UsrLi\AppData\Local\Temp\DaVinci\Cfg-1000351\Workflow\1795621605195-0\Config\Developer\S32K1X_Cfg_Project.dcf'...
+              25 Nov 2026 23:47:21 - Loading file PlatformTypes_AR4.arxml (C:\Users\UsrLi\AppData\Local\Temp\DaVinci\Cfg-1000351\Workflow\1795621605195-0\Config\AUTOSAR\PlatformTypes_AR4.arxml).
+              25 Nov 2026 23:47:21 - Loading file DataTypes.arxml (C:\Users\UsrLi\AppData\Local\Temp\DaVinci\Cfg-1000351\Workflow\1795621605195-0\Config\Developer\DataTypes.arxml).
+              25 Nov 2026 23:47:21 - Loading file Packages.arxml (C:\Users\UsrLi\AppData\Local\Temp\DaVinci\Cfg-1000351\Workflow\1795621605195-0\Config\Developer\Packages.arxml).
+              25 Nov 2026 23:47:21 - Loading file PortInterfaces.arxml (C:\Users\UsrLi\AppData\Local\Temp\DaVinci\Cfg-1000351\Workflow\1795621605195-0\Config\Developer\PortInterfaces.arxml).
+              25 Nov 2026 23:47:21 - Loading file S32K1X_Cfg_Project.arxml (C:\Users\UsrLi\AppData\Local\Temp\DaVinci\Cfg-1000351\Workflow\1795621605195-0\Config\Developer\S32K1X_Cfg_Project.arxml).
+              25 Nov 2026 23:47:22 - Opened workspace 'C:\Users\UsrLi\AppData\Local\Temp\DaVinci\Cfg-1000351\Workflow\1795621605195-0\Config\Developer\S32K1X_Cfg_Project.dcf' successfully.
+              25 Nov 2026 23:47:22 - Saving workspace 'C:\Users\UsrLi\AppData\Local\Temp\DaVinci\Cfg-1000351\Workflow\1795621605195-0\Config\Developer\S32K1X_Cfg_Project.dcf'...
+              25 Nov 2026 23:47:22 - Saved workspace 'C:\Users\UsrLi\AppData\Local\Temp\DaVinci\Cfg-1000351\Workflow\1795621605195-0\Config\Developer\S32K1X_Cfg_Project.dcf' successfully.
+              25 Nov 2026 23:47:22 - Closing workspace 'C:\Users\UsrLi\AppData\Local\Temp\DaVinci\Cfg-1000351\Workflow\1795621605195-0\Config\Developer\S32K1X_Cfg_Project.dcf'...
+              25 Nov 2026 23:47:22 - Closed workspace 'C:\Users\UsrLi\AppData\Local\Temp\DaVinci\Cfg-1000351\Workflow\1795621605195-0\Config\Developer\S32K1X_Cfg_Project.dcf' successfully.
+              OK.
+ 23:47:23 - Action 'Update DaVinci Developer Workspace' successfully finished.
+ 23:47:23 - Action 'Update RTE configuration' started.
+ 23:47:23 - Action 'Update RTE configuration' successfully finished.
+ 23:47:23 - Action 'Align differences after successful update' started.
+ 23:47:24 - Action 'Align differences after successful update' successfully finished.
+ 23:47:24 - Action 'Clean up update data' started.
+ 23:47:24 - Action 'Clean up update data' successfully finished.
+23:47:25 - Workflow 'Update workflow.' successfully finished.

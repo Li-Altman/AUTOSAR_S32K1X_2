@@ -1,0 +1,15 @@
+﻿25 Nov 2026 23:42:06 - Saving file AdminDataTemplates.xml (F:\PROJECT\AutoSARWorkSpace\AUTOSAR_S32K1X_2\S32K1X_Cfg\Config\Developer\AdminDataTemplates.xml)
+25 Nov 2026 23:42:06 - Saving file S32K1X_Cfg_Project.dcf (F:\PROJECT\AutoSARWorkSpace\AUTOSAR_S32K1X_2\S32K1X_Cfg\Config\Developer\S32K1X_Cfg_Project.dcf)
+25 Nov 2026 23:42:06 - Start import
+25 Nov 2026 23:42:06 - Importing file (E:\Programs\Vector\Vector DaVinci Developer 4.6\Bin\Predefines\StandardPackages_AR4.arxml).
+25 Nov 2026 23:42:08 - Importing file (E:\Programs\Vector\Vector DaVinci Developer 4.6\Bin\Predefines\ServicePortInterfaces_4.5.0.arxml).
+25 Nov 2026 23:42:08 - Importing file (E:\Programs\Vector\Vector DaVinci Developer 4.6\Bin\Predefines\ApplicationPortInterfaces_4.5.0.arxml).
+25 Nov 2026 23:42:08 - Importing file (F:\PROJECT\AutoSARWorkSpace\AUTOSAR_S32K1X_2\S32K1X_Cfg\Config\AUTOSAR\PlatformTypes_AR4.arxml).
+25 Nov 2026 23:42:08 - Merging imported data
+25 Nov 2026 23:42:10 - Finished import
+25 Nov 2026 23:42:10 - Saving file ProfileSettings.xml (F:\PROJECT\AutoSARWorkSpace\AUTOSAR_S32K1X_2\S32K1X_Cfg\Config\Developer\ProfileSettings.xml)
+25 Nov 2026 23:42:10 - Saving file Packages.arxml (F:\PROJECT\AutoSARWorkSpace\AUTOSAR_S32K1X_2\S32K1X_Cfg\Config\Developer\Packages.arxml)
+25 Nov 2026 23:42:10 - Saving file DataTypes.arxml (F:\PROJECT\AutoSARWorkSpace\AUTOSAR_S32K1X_2\S32K1X_Cfg\Config\Developer\DataTypes.arxml)
+25 Nov 2026 23:42:11 - Saving file PortInterfaces.arxml (F:\PROJECT\AutoSARWorkSpace\AUTOSAR_S32K1X_2\S32K1X_Cfg\Config\Developer\PortInterfaces.arxml)
+25 Nov 2026 23:42:11 - Saving file S32K1X_Cfg_Project.arxml (F:\PROJECT\AutoSARWorkSpace\AUTOSAR_S32K1X_2\S32K1X_Cfg\Config\Developer\ECUProjects\S32K1X_Cfg_Project.arxml)
+25 Nov 2026 23:42:11 - Saving file S32K1X_Cfg_Project.dcf (F:\PROJECT\AutoSARWorkSpace\AUTOSAR_S32K1X_2\S32K1X_Cfg\Config\Developer\S32K1X_Cfg_Project.dcf)

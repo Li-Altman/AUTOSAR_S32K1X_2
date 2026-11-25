@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00048.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="B182F72C-E17E-44A1-8527-4625CEBAFF51">
+      <SHORT-NAME>ECUCompositionTypes</SHORT-NAME>
+      <ELEMENTS>
+        <COMPOSITION-SW-COMPONENT-TYPE UUID="4972A98F-9239-4FEF-A552-BB6C046E503F">
+          <SHORT-NAME>ECU_Composition</SHORT-NAME>
+        </COMPOSITION-SW-COMPONENT-TYPE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE UUID="F4F6BF6D-A2EC-4B34-9E3D-097E4F8CF443">
+      <SHORT-NAME>EndToEndProtections</SHORT-NAME>
+      <ELEMENTS>
+        <END-TO-END-PROTECTION-SET UUID="BF6EFDE2-8A9F-4440-BE75-310E194B1578">
+          <SHORT-NAME>EndToEndProtectionSet</SHORT-NAME>
+        </END-TO-END-PROTECTION-SET>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE UUID="AE275BD7-47EA-41CC-991B-FA962A7A670F">
+      <SHORT-NAME>Systems</SHORT-NAME>
+      <ELEMENTS>
+        <SYSTEM UUID="7E197793-E774-4ED9-B8AD-9E07D852A292">
+          <SHORT-NAME>S32K1X_Cfg_Project</SHORT-NAME>
+          <ROOT-SOFTWARE-COMPOSITIONS>
+            <ROOT-SW-COMPOSITION-PROTOTYPE UUID="3B11B775-BD08-447F-86CB-4F21C5613387">
+              <SHORT-NAME>EcuSwComposition</SHORT-NAME>
+              <SOFTWARE-COMPOSITION-TREF DEST="COMPOSITION-SW-COMPONENT-TYPE">/ECUCompositionTypes/ECU_Composition</SOFTWARE-COMPOSITION-TREF>
+            </ROOT-SW-COMPOSITION-PROTOTYPE>
+          </ROOT-SOFTWARE-COMPOSITIONS>
+        </SYSTEM>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

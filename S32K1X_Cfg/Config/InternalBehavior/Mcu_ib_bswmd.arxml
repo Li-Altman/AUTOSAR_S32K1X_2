@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="05214e7a-ff95-4a21-b3a6-f53e64c26fea">
+      <SHORT-NAME>TS_T40D2M10I1R0</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="7eea6b06-e537-47d1-9514-4ee6d5a52d86">
+          <SHORT-NAME>Mcu_ib_bswmd</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE UUID="ccce295c-883d-46b4-8d11-8ac54379a1e2">
+              <SHORT-NAME>BswModuleDescriptions</SHORT-NAME>
+              <ELEMENTS>
+                <BSW-MODULE-DESCRIPTION UUID="86e2a1cf-64c2-4550-a720-69a2ac22ca09">
+                  <SHORT-NAME>Mcu</SHORT-NAME>
+                  <INTERNAL-BEHAVIORS>
+                    <BSW-INTERNAL-BEHAVIOR UUID="76e833af-e5d8-4ea2-99f4-69146fa09f50">
+                      <SHORT-NAME>McuBehavior</SHORT-NAME>
+                      <EXCLUSIVE-AREAS>
+                        <EXCLUSIVE-AREA UUID="0a17644c-cf2d-43bb-a51b-d15b30a1c9d8">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_00</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="e62f17b1-8ff3-4fab-9e26-2ebf1fdae2dd">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_01</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="84b87b32-d6f5-4995-b8e1-f3474f70cac9">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_02</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="819ee74a-8509-426f-8f61-92975abc4dce">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_03</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="54aaed7a-2c07-4470-8b48-0f6b0e011a7a">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_04</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="8ca3f4da-b416-41f3-a4b2-0de8ef9c4077">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_05</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="48ae790f-e902-4ba7-baad-ff2db988142e">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_06</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="40bb6aff-5532-458e-9575-eae4ad5234d6">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_07</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="59cf461e-86f6-415a-a8d4-c2eb73822c10">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_08</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="3526cf2a-3e73-48de-87a6-6fc0da263377">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_09</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="58611060-bee7-42b7-99ba-e5f1cfbe7c94">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_10</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="eb62b098-a3b8-417b-aa5d-cc96bc065e86">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_11</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="577b6808-c90d-400f-9456-3ef18abd9a2c">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_12</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="370fcd78-d034-401d-8778-08b7134b77d9">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_13</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="40389a74-efbf-4a12-b428-2ea5a581a1d6">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_14</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="1d52455b-7433-4f9a-8857-38dcb760ee5e">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_15</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="f77afaf6-8b3d-4bb2-91aa-437b6423b41a">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_16</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="6802de0f-0a9a-40a8-9011-8b2fe347394d">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_17</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="9e771d3b-9347-4243-a53a-4390d614abd9">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_18</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="3b16825b-f89a-41c0-a239-fe4e08a285ca">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_19</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="fa1447be-c7f4-4486-a89f-0f4d29fd70c8">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_20</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="443f3949-3941-4476-9ed2-b5ce73f1656f">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_21</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="db8921e0-d861-4414-83ae-d199f22cdb10">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_22</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="d7f7a01a-6fe1-4e7e-ae63-80d774b11323">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_23</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="42483c4e-99c3-48df-86d8-f80084293a41">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_24</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="22e372b9-35f3-4862-92a1-1c6e9960bda5">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_25</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="016bed8d-d367-4049-991b-29e24b88345f">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_26</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="9e636c8c-98a5-4f7c-bd54-71fe51a46e24">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_27</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="4efffece-8ac0-48fe-a3ff-4f303ddd8519">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_28</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="5bc53361-a69a-44e0-bdc8-9ddf330d6002">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_29</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                        <EXCLUSIVE-AREA UUID="6b6a2f41-b5f8-4598-a051-0a2ef22db8b7">
+                          <SHORT-NAME>MCU_EXCLUSIVE_AREA_30</SHORT-NAME>
+                        </EXCLUSIVE-AREA>
+                      </EXCLUSIVE-AREAS>
+                    </BSW-INTERNAL-BEHAVIOR>
+                  </INTERNAL-BEHAVIORS>
+                </BSW-MODULE-DESCRIPTION>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

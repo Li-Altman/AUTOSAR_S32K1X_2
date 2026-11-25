@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Settings>
+    <Settings Name="CFG5_GUI_SETTING">
+        <Settings Name="com.vector.cfg.gui.app.dvcfg.views.validation.validationview.hideack">
+            <Setting Value="false" Name="buttonStateAck"/>
+        </Settings>
+        <Settings Name="com.vector.cfg.gui.app.dvcfg.views.validation.validationview.hideerror">
+            <Setting Value="false" Name="buttonStateError"/>
+        </Settings>
+        <Settings Name="com.vector.cfg.gui.app.dvcfg.views.validation.validationview.hideinfo">
+            <Setting Value="false" Name="buttonStateInfo"/>
+        </Settings>
+        <Settings Name="com.vector.cfg.gui.app.dvcfg.views.validation.validationview.hidewarn">
+            <Setting Value="false" Name="buttonStateWarn"/>
+        </Settings>
+        <Settings Name="com.vector.cfg.gui.app.views.validation.table.ValidationViewTable"/>
+        <Settings Name="com.vector.cfg.gui.gce.internal.GCETable.TS_T40D2M10I1R0.Dio.DioConfig.DioPort">
+            <Setting Value="0,1,2," Name="nattable.BODY.columnIndexOrder"/>
+            <Setting Value="0:20,1:115,2:85," Name="nattable.BODY.columnWidth.sizes"/>
+            <Setting Value="ASC" Name="nattable.sortDirections"/>
+            <Setting Value="1" Name="nattable.sortIndexes"/>
+        </Settings>
+        <Settings Name="com.vector.cfg.gui.gce.internal.GCETable.TS_T40D2M10I1R0.Dio.DioConfig.DioPort.DioChannel">
+            <Setting Value="0,1,2," Name="nattable.BODY.columnIndexOrder"/>
+            <Setting Value="0:20,1:160,2:112," Name="nattable.BODY.columnWidth.sizes"/>
+            <Setting Value="ASC" Name="nattable.sortDirections"/>
+            <Setting Value="1" Name="nattable.sortIndexes"/>
+        </Settings>
+        <Settings Name="com.vector.cfg.gui.gce.internal.GCETable.TS_T40D2M10I1R0.Dio.DioConfig.DioPort.DioChannelGroup">
+            <Setting Value="0,1,2,3,4,5," Name="nattable.BODY.columnIndexOrder"/>
+            <Setting Value="0:20,1:172,2:244,3:154,4:109,5:115," Name="nattable.BODY.columnWidth.sizes"/>
+            <Setting Value="ASC" Name="nattable.sortDirections"/>
+            <Setting Value="1" Name="nattable.sortIndexes"/>
+        </Settings>
+        <Settings Name="com.vector.cfg.gui.gce.internal.GCETable.TS_T40D2M10I1R0.Mcu.McuModuleConfiguration.McuClockSettingConfig">
+            <Setting Value="0,1,2,3,4," Name="nattable.BODY.columnIndexOrder"/>
+            <Setting Value="0:20,1:216,2:151,3:169,4:248," Name="nattable.BODY.columnWidth.sizes"/>
+            <Setting Value="ASC" Name="nattable.sortDirections"/>
+            <Setting Value="1" Name="nattable.sortIndexes"/>
+        </Settings>
+        <Settings Name="com.vector.cfg.gui.gce.internal.GCETable.TS_T40D2M10I1R0.Mcu.McuModuleConfiguration.McuModeSettingConf">
+            <Setting Value="0,1,2,3," Name="nattable.BODY.columnIndexOrder"/>
+            <Setting Value="0:20,1:207,2:81,3:131," Name="nattable.BODY.columnWidth.sizes"/>
+            <Setting Value="ASC" Name="nattable.sortDirections"/>
+            <Setting Value="1" Name="nattable.sortIndexes"/>
+        </Settings>
+        <Settings Name="com.vector.cfg.gui.gce.internal.GCETable.TS_T40D2M10I1R0.Mcu.McuModuleConfiguration.McuRamSectorSettingConf">
+            <Setting Value="0,1,2,3,4,5,6,7," Name="nattable.BODY.columnIndexOrder"/>
+            <Setting Value="0:20,1:242,2:168,3:288,4:228,5:160,6:243,7:138," Name="nattable.BODY.columnWidth.sizes"/>
+            <Setting Value="ASC" Name="nattable.sortDirections"/>
+            <Setting Value="1" Name="nattable.sortIndexes"/>
+        </Settings>
+        <Settings Name="com.vector.cfg.gui.gce.internal.GCETable.TS_T40D2M10I1R0.Mcu.McuPublishedInformation.McuResetReasonConf">
+            <Setting Value="0,1,2," Name="nattable.BODY.columnIndexOrder"/>
+            <Setting Value="0:21,1:368,2:134," Name="nattable.BODY.columnWidth.sizes"/>
+            <Setting Value="ASC" Name="nattable.sortDirections"/>
+            <Setting Value="1" Name="nattable.sortIndexes"/>
+        </Settings>
+        <Settings Name="com.vector.cfg.gui.gce.internal.GCETable.TS_T40D2M10I1R0.Port.PortConfigSet.DigitalFilter">
+            <Setting Value="0,1,2,3,4," Name="nattable.BODY.columnIndexOrder"/>
+            <Setting Value="0:20,1:127,2:168,3:159,4:172," Name="nattable.BODY.columnWidth.sizes"/>
+            <Setting Value="ASC" Name="nattable.sortDirections"/>
+            <Setting Value="1" Name="nattable.sortIndexes"/>
+        </Settings>
+    </Settings>
+    <Settings Name="com.vector.cfg.consistency.internal.executer.BackgroundValidationExecuter">
+        <Setting Value="rO0ABXNyABFqYXZhLnV0aWwuSGFzaE1hcAUH2sHDFmDRAwACRgAKbG9hZEZhY3RvckkACXRocmVz&#xA;aG9sZHhwP0AAAAAAAAx3CAAAABAAAAAGdABZY29tLnZlY3Rvci5jZmcudmFsaWRhdGlvbi5iYXNp&#xA;Y3J1bGVzLm1zci5pbnRlcm5hbC5tdWx0aXBsaWNpdHkuTXVsdGlwbGljaXR5Q2hlY2tQYXJhbWV0&#xA;ZXJzcgAOamF2YS5sYW5nLkxvbmc7i+SQzI8j3wIAAUoABXZhbHVleHIAEGphdmEubGFuZy5OdW1i&#xA;ZXKGrJUdC5TgiwIAAHhwAAAAAAEAAAB0AFJjb20udmVjdG9yLmNmZy52YWxpZGF0aW9uLmJhc2lj&#xA;cnVsZXMubXNyLmludGVybmFsLkJzd0ltcGxlbWVudGF0aW9uVW5hbWJpZ3VvdXNuZXNzc3EAfgAD&#xA;AAAAAAQAAAB0AE9jb20udmVjdG9yLmNmZy52YWxpZGF0aW9uLmJhc2ljcnVsZXMubXNyLmludGVy&#xA;bmFsLmJhc2V2YWx1ZWNoZWNrLkJhc2VWYWx1ZUNoZWNrc3EAfgADAAAAAAMAAAB0AENjb20udmVj&#xA;dG9yLmNmZy5tb2RlbC5zd2N0ZW1wbGF0ZXMuaW50ZXJuYWwudmFsaWRhdGlvbi5Td2NWYWxpZGF0&#xA;aW9uc3EAfgADAAAAABMAAAB0AE5jb20udmVjdG9yLmNmZy52YWxpZGF0aW9uLmJhc2ljcnVsZXMu&#xA;bXNyLmludGVybmFsLkNob2ljZUNvbnRhaW5lclNlbGVjdGlvblJ1bGVzcQB+AAMAAAAABAAAAHQA&#xA;QmNvbS52ZWN0b3IuY2ZnLnZhbGlkYXRpb24uYmFzaWNydWxlcy5tc3IuaW50ZXJuYWwuRW51bWVy&#xA;YXRpb25WYWx1ZXNxAH4AAwAAAAAEAAAAeA==" Name="ValidationRuleExecutionTimes"/>
+    </Settings>
+</Settings>
