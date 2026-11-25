@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00045.xsd">
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-2-1.xsd">
   <AR-PACKAGES>
     <AR-PACKAGE>
       <SHORT-NAME>ActiveEcuC</SHORT-NAME>
@@ -14,12 +14,12 @@
             </SDGS>
           </ADMIN-DATA>
           <DEFINITION-REF DEST="ECUC-MODULE-DEF">/TS_T40D2M10I1R0/Mcu</DEFINITION-REF>
-          <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</IMPLEMENTATION-CONFIG-VARIANT>
+          <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-POST-BUILD</IMPLEMENTATION-CONFIG-VARIANT>
           <MODULE-DESCRIPTION-REF DEST="BSW-IMPLEMENTATION">/TS_T40D2M10I1R0/Mcu_Impl</MODULE-DESCRIPTION-REF>
           <CONTAINERS>
             <ECUC-CONTAINER-VALUE UUID="59a0e8e6-3675-4bf1-bb7b-7b4a1f1af17d">
               <SHORT-NAME>CommonPublishedInformation</SHORT-NAME>
-              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/CommonPublishedInformation</DEFINITION-REF>
+              <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/CommonPublishedInformation</DEFINITION-REF>
               <PARAMETER-VALUES>
                 <ECUC-NUMERICAL-PARAM-VALUE>
                   <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/CommonPublishedInformation/ArReleaseMajorVersion</DEFINITION-REF>
@@ -50,7 +50,7 @@
                   <VALUE>1</VALUE>
                 </ECUC-NUMERICAL-PARAM-VALUE>
                 <ECUC-TEXTUAL-PARAM-VALUE>
-                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/CommonPublishedInformation/VendorApiInfix</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/CommonPublishedInformation/VendorApiInfix</DEFINITION-REF>
                   <VALUE/>
                 </ECUC-TEXTUAL-PARAM-VALUE>
                 <ECUC-NUMERICAL-PARAM-VALUE>
@@ -61,7 +61,7 @@
             </ECUC-CONTAINER-VALUE>
             <ECUC-CONTAINER-VALUE UUID="cf924488-b46e-41e2-bbc8-434ea58105cf">
               <SHORT-NAME>McuDebugConfiguration</SHORT-NAME>
-              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuDebugConfiguration</DEFINITION-REF>
+              <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuDebugConfiguration</DEFINITION-REF>
               <PARAMETER-VALUES>
                 <ECUC-NUMERICAL-PARAM-VALUE>
                   <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuDebugConfiguration/McuDisableCmuApi</DEFINITION-REF>
@@ -87,10 +87,10 @@
             </ECUC-CONTAINER-VALUE>
             <ECUC-CONTAINER-VALUE UUID="740430b1-0553-4e72-bba1-cea93b1a8694">
               <SHORT-NAME>McuModuleConfiguration</SHORT-NAME>
-              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration</DEFINITION-REF>
+              <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration</DEFINITION-REF>
               <PARAMETER-VALUES>
                 <ECUC-TEXTUAL-PARAM-VALUE>
-                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSrcFailureNotification</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSrcFailureNotification</DEFINITION-REF>
                   <VALUE>ENABLED</VALUE>
                 </ECUC-TEXTUAL-PARAM-VALUE>
                 <ECUC-NUMERICAL-PARAM-VALUE>
@@ -102,7 +102,7 @@
                   <VALUE>true</VALUE>
                 </ECUC-NUMERICAL-PARAM-VALUE>
                 <ECUC-TEXTUAL-PARAM-VALUE>
-                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuLPOClockSelect</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuLPOClockSelect</DEFINITION-REF>
                   <VALUE>LPO_CLK_128K</VALUE>
                 </ECUC-TEXTUAL-PARAM-VALUE>
                 <ECUC-NUMERICAL-PARAM-VALUE>
@@ -118,14 +118,14 @@
                   <VALUE>0</VALUE>
                 </ECUC-NUMERICAL-PARAM-VALUE>
                 <ECUC-TEXTUAL-PARAM-VALUE>
-                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuRtcClkSelect</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuRtcClkSelect</DEFINITION-REF>
                   <VALUE>SOSCDIV1_CLK</VALUE>
                 </ECUC-TEXTUAL-PARAM-VALUE>
               </PARAMETER-VALUES>
               <SUB-CONTAINERS>
                 <ECUC-CONTAINER-VALUE UUID="21bd3bea-1b04-49b6-9354-23b015a1bac9">
                   <SHORT-NAME>McuInterruptEvents</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuInterruptEvents</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuInterruptEvents</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuInterruptEvents/McuAlternateResetEvent</DEFINITION-REF>
@@ -139,7 +139,7 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="0b744485-762c-489b-918d-9ed88d7ae28c">
                   <SHORT-NAME>McuAllowedModes</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuAllowedModes</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuAllowedModes</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuAllowedModes/McuAllowHighSpeedRunMode</DEFINITION-REF>
@@ -153,11 +153,11 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="1b0ece96-d664-46ad-8a00-ab72b3552b31">
                   <SHORT-NAME>McuSIMConfig</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig</DEFINITION-REF>
                   <SUB-CONTAINERS>
                     <ECUC-CONTAINER-VALUE UUID="43fe9df5-6427-4b2b-b948-cff08b492e7c">
                       <SHORT-NAME>McuFlexTimerConfiguration</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-NUMERICAL-PARAM-VALUE>
                           <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM0Ch0ModulationSelect</DEFINITION-REF>
@@ -192,19 +192,19 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM0ExternalClockPinSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM0ExternalClockPinSelect</DEFINITION-REF>
                           <VALUE>TCLK0_PIN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM0Fault0Select</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM0Fault0Select</DEFINITION-REF>
                           <VALUE>FTM0_FLT0_PIN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM0Fault1Select</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM0Fault1Select</DEFINITION-REF>
                           <VALUE>FTM0_FLT1_PIN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM0Fault2Select</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM0Fault2Select</DEFINITION-REF>
                           <VALUE>FTM0_FLT2_PIN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -216,23 +216,23 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM1Ch0InputSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM1Ch0InputSelect</DEFINITION-REF>
                           <VALUE>FTM1_CH0_INPUT</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM1ExternalClockPinSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM1ExternalClockPinSelect</DEFINITION-REF>
                           <VALUE>TCLK0_PIN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM1Fault0Select</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM1Fault0Select</DEFINITION-REF>
                           <VALUE>FTM1_FLT0_PIN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM1Fault1Select</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM1Fault1Select</DEFINITION-REF>
                           <VALUE>FTM1_FLT1_PIN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM1Fault2Select</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM1Fault2Select</DEFINITION-REF>
                           <VALUE>FTM1_FLT2_PIN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -244,27 +244,27 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM2Ch0InputSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM2Ch0InputSelect</DEFINITION-REF>
                           <VALUE>FTM2_CH0_INPUT</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM2Ch1InputSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM2Ch1InputSelect</DEFINITION-REF>
                           <VALUE>FTM2_CHI1_INPUT</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM2ExternalClockPinSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM2ExternalClockPinSelect</DEFINITION-REF>
                           <VALUE>TCLK0_PIN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM2Fault0Select</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM2Fault0Select</DEFINITION-REF>
                           <VALUE>FTM2_FLT0_PIN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM2Fault1Select</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM2Fault1Select</DEFINITION-REF>
                           <VALUE>FTM2_FLT1_PIN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM2Fault2Select</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM2Fault2Select</DEFINITION-REF>
                           <VALUE>FTM2_FLT2_PIN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -308,19 +308,19 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM3ExternalClockPinSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM3ExternalClockPinSelect</DEFINITION-REF>
                           <VALUE>TCLK0_PIN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM3Fault0Select</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM3Fault0Select</DEFINITION-REF>
                           <VALUE>FTM3_FLT0_PIN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM3Fault1Select</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM3Fault1Select</DEFINITION-REF>
                           <VALUE>FTM3_FLT1_PIN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM3Fault2Select</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM3Fault2Select</DEFINITION-REF>
                           <VALUE>FTM3_FLT2_PIN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -332,7 +332,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM4ExternalClockPinSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM4ExternalClockPinSelect</DEFINITION-REF>
                           <VALUE>TCLK0_PIN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -344,7 +344,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM5ExternalClockPinSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM5ExternalClockPinSelect</DEFINITION-REF>
                           <VALUE>TCLK0_PIN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -356,7 +356,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM6ExternalClockPinSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM6ExternalClockPinSelect</DEFINITION-REF>
                           <VALUE>TCLK0_PIN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -368,7 +368,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM7ExternalClockPinSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuFlexTimerConfiguration/McuFTM7ExternalClockPinSelect</DEFINITION-REF>
                           <VALUE>TCLK0_PIN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -403,30 +403,30 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="8b5e3de0-ca21-4465-8142-f22821a2713c">
                       <SHORT-NAME>McuAdcOptionsConfiguration</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuAdcOptionsConfiguration</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuAdcOptionsConfiguration</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuAdcOptionsConfiguration/McuADC0PreTrigeerSourceSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuAdcOptionsConfiguration/McuADC0PreTrigeerSourceSelect</DEFINITION-REF>
                           <VALUE>PDB_PRE_TRIGGER</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuAdcOptionsConfiguration/McuADC0SoftwarePreTrigeerSourceSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuAdcOptionsConfiguration/McuADC0SoftwarePreTrigeerSourceSelect</DEFINITION-REF>
                           <VALUE>SW_PRE_TRIGGER_DISABLE</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuAdcOptionsConfiguration/McuADC0TrigeerSourceSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuAdcOptionsConfiguration/McuADC0TrigeerSourceSelect</DEFINITION-REF>
                           <VALUE>PDB</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuAdcOptionsConfiguration/McuADC1PreTrigeerSourceSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuAdcOptionsConfiguration/McuADC1PreTrigeerSourceSelect</DEFINITION-REF>
                           <VALUE>PDB_PRE_TRIGGER</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuAdcOptionsConfiguration/McuADC1SoftwarePreTrigeerSourceSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuAdcOptionsConfiguration/McuADC1SoftwarePreTrigeerSourceSelect</DEFINITION-REF>
                           <VALUE>SW_PRE_TRIGGER_DISABLE</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuAdcOptionsConfiguration/McuADC1TrigeerSourceSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuAdcOptionsConfiguration/McuADC1TrigeerSourceSelect</DEFINITION-REF>
                           <VALUE>PDB</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -437,10 +437,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="e37bbcc3-d7af-4b86-856e-d244c2ac0e6c">
                       <SHORT-NAME>McuChipControlConfiguration</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuChipControlConfiguration</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuChipControlConfiguration</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuChipControlConfiguration/McuAdcSupply</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuSIMConfig/McuChipControlConfiguration/McuAdcSupply</DEFINITION-REF>
                           <VALUE>VDD</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -473,7 +473,7 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="965c5ea0-5a19-4f52-acb0-35bbcd1e4d50">
                   <SHORT-NAME>McuPowerControl</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuPowerControl</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuPowerControl</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuPowerControl/McuClockBiasDisable</DEFINITION-REF>
@@ -507,14 +507,14 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="818e8349-5c4d-415e-a482-da8abc248a52">
                   <SHORT-NAME>McuClockSettingConfig_0</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockSettingId</DEFINITION-REF>
                       <VALUE>0</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-TEXTUAL-PARAM-VALUE>
-                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuScgClkOutSelect</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuScgClkOutSelect</DEFINITION-REF>
                       <VALUE>SCG_SLOW_CLK</VALUE>
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
@@ -525,10 +525,10 @@
                   <SUB-CONTAINERS>
                     <ECUC-CONTAINER-VALUE UUID="a3d08a87-1d57-4abc-b489-3dc8533120fc">
                       <SHORT-NAME>McuPeripheralClockConfig_40</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>ENET</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -544,7 +544,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -555,10 +555,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="a334f67c-a050-497a-8f27-4ef78a276b0c">
                       <SHORT-NAME>McuClockReferencePoint_0</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuClockFrequencySelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClockReferencePoint/McuClockFrequencySelect</DEFINITION-REF>
                           <VALUE>RUN_SYS_CLK</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -569,10 +569,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="99a8ad53-8616-493f-8afd-48a57a26c372">
                       <SHORT-NAME>McuPeripheralClockConfig_39</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>QSPI</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -588,7 +588,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -599,10 +599,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="91a6f0eb-52fd-4359-a427-ba2ae07db536">
                       <SHORT-NAME>McuPeripheralClockConfig_38</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>CMP0</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -618,7 +618,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -629,7 +629,7 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="c6c2cc68-e2c6-4d56-b358-b10eeb527a7f">
                       <SHORT-NAME>McuClkMonitor_0</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClkMonitor_0</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClkMonitor_0</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-NUMERICAL-PARAM-VALUE>
                           <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClkMonitor_0/McuClkMonitorEn</DEFINITION-REF>
@@ -659,7 +659,7 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="569e8c23-5f60-4790-b4e0-fd655acbb554">
                       <SHORT-NAME>McuHsrunClockConfig</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuHsrunClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuHsrunClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-NUMERICAL-PARAM-VALUE>
                           <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuHsrunClockConfig/McuBusClockDivider</DEFINITION-REF>
@@ -698,14 +698,14 @@
                           <VALUE>48000000</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuHsrunClockConfig/McuSystemClockSwitch</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuHsrunClockConfig/McuSystemClockSwitch</DEFINITION-REF>
                           <VALUE>FIRC</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                       </PARAMETER-VALUES>
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="2b457a91-604c-4f25-a0b8-b273ccd3be4b">
                       <SHORT-NAME>McuSIMClockConfig</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSIMClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSIMClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-NUMERICAL-PARAM-VALUE>
                           <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSIMClockConfig/McuClockOutDivider</DEFINITION-REF>
@@ -716,7 +716,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSIMClockConfig/McuClockOutSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSIMClockConfig/McuClockOutSelect</DEFINITION-REF>
                           <VALUE>SCG_CLKOUT</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -756,14 +756,14 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSIMClockConfig/McuTraceClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSIMClockConfig/McuTraceClockSelect</DEFINITION-REF>
                           <VALUE>CORE_CLK</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                       </PARAMETER-VALUES>
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="b8c72ff1-3df6-4307-add4-59ca96718335">
                       <SHORT-NAME>McuRunClockConfig</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuRunClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuRunClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-NUMERICAL-PARAM-VALUE>
                           <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuRunClockConfig/McuBusClockDivider</DEFINITION-REF>
@@ -802,14 +802,14 @@
                           <VALUE>80000000</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuRunClockConfig/McuSystemClockSwitch</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuRunClockConfig/McuSystemClockSwitch</DEFINITION-REF>
                           <VALUE>SPLL</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                       </PARAMETER-VALUES>
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="049d6267-6acd-4084-ae28-5a3a7bf6421c">
                       <SHORT-NAME>McuFIRCClockConfig</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuFIRCClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuFIRCClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-NUMERICAL-PARAM-VALUE>
                           <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuFIRCClockConfig/McuFIRCDiv1</DEFINITION-REF>
@@ -836,7 +836,7 @@
                           <VALUE>48000000</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuFIRCClockConfig/McuFIRCRangeSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuFIRCClockConfig/McuFIRCRangeSelect</DEFINITION-REF>
                           <VALUE>TRIMMED_TO_48MHZ</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -851,10 +851,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="1acd86c3-230c-449c-80d5-abbbd8e55078">
                       <SHORT-NAME>McuPeripheralClockConfig_31</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>LPUART0</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -870,7 +870,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -881,10 +881,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="c97a8e17-622c-4485-9dc4-bfdfed8d13e1">
                       <SHORT-NAME>McuPeripheralClockConfig_30</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>LPI2C1</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -900,7 +900,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -911,10 +911,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="e24a0564-824a-4d42-b068-fcee73dba3f0">
                       <SHORT-NAME>McuPeripheralClockConfig_33</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>LPUART2</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -930,7 +930,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -941,7 +941,7 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="f0e9426d-b778-4463-bbe6-e0698beedfdd">
                       <SHORT-NAME>McuSystemPll</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSystemPll</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSystemPll</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-NUMERICAL-PARAM-VALUE>
                           <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSystemPll/McuSPLLClockMonitorEnable</DEFINITION-REF>
@@ -995,10 +995,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="7822f3e3-ef8e-4f60-b52c-f2f152ede13e">
                       <SHORT-NAME>McuPeripheralClockConfig_32</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>LPUART1</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1014,7 +1014,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1025,10 +1025,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="e83c4332-0acc-48d6-bfb5-e85475754450">
                       <SHORT-NAME>McuPeripheralClockConfig_35</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>FTM5</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1044,7 +1044,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1055,10 +1055,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="5c645abf-3fd8-45e6-a0cf-6efe0606f5b8">
                       <SHORT-NAME>McuPeripheralClockConfig_34</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>FTM4</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1074,7 +1074,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1085,10 +1085,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="f5fd584e-0b9b-4482-99d3-3bc4541c0d12">
                       <SHORT-NAME>McuPeripheralClockConfig_37</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>FTM7</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1104,7 +1104,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1115,10 +1115,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="fdba0ec3-1024-43c7-a08f-61800797b655">
                       <SHORT-NAME>McuPeripheralClockConfig_36</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>FTM6</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1134,7 +1134,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1145,10 +1145,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="091536cf-ea3d-4450-859b-5dec6a215593">
                       <SHORT-NAME>McuPeripheralClockConfig_28</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>EWM</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1164,7 +1164,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1175,10 +1175,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="3f7d4f6d-286e-4e6e-979c-29128397a191">
                       <SHORT-NAME>McuPeripheralClockConfig_27</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>FLEXIO</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1194,7 +1194,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1205,10 +1205,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="bb5bdd55-3d8b-4c9b-988c-38d6efd9779a">
                       <SHORT-NAME>McuPeripheralClockConfig_29</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>LPI2C0</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1224,7 +1224,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1235,7 +1235,7 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="d5934ac5-952f-4c1f-8a9e-b80d2b59f07c">
                       <SHORT-NAME>McuSystemOSCClockConfig</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSystemOSCClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSystemOSCClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-NUMERICAL-PARAM-VALUE>
                           <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSystemOSCClockConfig/McuSOSCClockMonitorEnable</DEFINITION-REF>
@@ -1278,7 +1278,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSystemOSCClockConfig/McuSOSCRangeSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSystemOSCClockConfig/McuSOSCRangeSelect</DEFINITION-REF>
                           <VALUE>HIGH_FREQ_RANGE</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1289,10 +1289,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="caf2060d-8924-4548-8b6b-1e025dde932a">
                       <SHORT-NAME>McuPeripheralClockConfig_20</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>PORTA</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1308,7 +1308,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1319,7 +1319,7 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="ed55a0af-db31-4872-bdba-175f41eef751">
                       <SHORT-NAME>McuVlprClockConfig</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuVlprClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuVlprClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-NUMERICAL-PARAM-VALUE>
                           <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuVlprClockConfig/McuBusClockDivider</DEFINITION-REF>
@@ -1358,14 +1358,14 @@
                           <VALUE>4000000</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuVlprClockConfig/McuSystemClockSwitch</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuVlprClockConfig/McuSystemClockSwitch</DEFINITION-REF>
                           <VALUE>SIRC</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                       </PARAMETER-VALUES>
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="11a6a195-fa46-41a9-a16e-67f2af98a429">
                       <SHORT-NAME>McuSIRCClockConfig</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSIRCClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSIRCClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-NUMERICAL-PARAM-VALUE>
                           <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSIRCClockConfig/McuSIRCDiv1</DEFINITION-REF>
@@ -1396,7 +1396,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSIRCClockConfig/McuSIRCRangeSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuSIRCClockConfig/McuSIRCRangeSelect</DEFINITION-REF>
                           <VALUE>HIGH_RANGE_CLOCK</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1411,10 +1411,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="770d6c74-bc8f-4c7b-b001-13da4e33a49c">
                       <SHORT-NAME>McuPeripheralClockConfig_22</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>PORTC</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1430,7 +1430,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1441,10 +1441,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="01857426-50a7-4ee5-a682-d16060037292">
                       <SHORT-NAME>McuPeripheralClockConfig_21</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>PORTB</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1460,7 +1460,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1471,10 +1471,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="db6a2ac6-92ac-4d83-afd7-2a28d8033a8e">
                       <SHORT-NAME>McuPeripheralClockConfig_24</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>PORTE</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1490,7 +1490,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1501,10 +1501,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="4dff9f27-5ec2-4404-8aef-f4c261f10416">
                       <SHORT-NAME>McuPeripheralClockConfig_23</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>PORTD</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1520,7 +1520,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1531,10 +1531,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="6db8cc8b-fb27-4dfe-9ac2-ca69185862c3">
                       <SHORT-NAME>McuPeripheralClockConfig_26</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>SAI1</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1550,7 +1550,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1561,10 +1561,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="91316ca5-29f3-4154-9aae-c8bbb1a4402d">
                       <SHORT-NAME>McuPeripheralClockConfig_25</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>SAI0</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1580,7 +1580,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1591,10 +1591,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="e1a4a9ec-7268-4fe1-8764-4595dae60928">
                       <SHORT-NAME>McuPeripheralClockConfig_17</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>ADC0</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1610,7 +1610,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1621,10 +1621,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="d0dbe75c-af57-4f1e-bfd8-ea7eb7c8ca17">
                       <SHORT-NAME>McuPeripheralClockConfig_16</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>FTM2</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1640,7 +1640,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1651,10 +1651,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="35d566a9-fe37-4aa8-bb5c-d6f099ba0419">
                       <SHORT-NAME>McuPeripheralClockConfig_19</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>LPTMR0</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1670,7 +1670,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1681,10 +1681,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="dadb59d2-dc84-438f-be21-bea4f7e201c2">
                       <SHORT-NAME>McuPeripheralClockConfig_18</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>RTC</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1700,7 +1700,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1711,10 +1711,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="b7d2c3ff-5a4b-414c-a9a0-5f0fcaf73e7c">
                       <SHORT-NAME>McuPeripheralClockConfig_0</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>FTFC</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1730,7 +1730,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1741,10 +1741,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="8f3fdf8f-a554-40d7-bc9f-cf57e3ebb7e6">
                       <SHORT-NAME>McuPeripheralClockConfig_2</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>FLEXCAN0</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1760,7 +1760,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1771,10 +1771,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="4e839226-5453-4f37-bec9-d5137c19ef3c">
                       <SHORT-NAME>McuPeripheralClockConfig_1</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>DMAMUX0</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1790,7 +1790,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1801,10 +1801,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="8059e967-b4c0-4803-a9fe-45e86bbb3b1b">
                       <SHORT-NAME>McuPeripheralClockConfig_8</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>LPSPI1</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1820,7 +1820,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1831,10 +1831,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="7820a996-2fed-49c7-b17c-4364f400904e">
                       <SHORT-NAME>McuPeripheralClockConfig_7</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>LPSPI0</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1850,7 +1850,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1861,10 +1861,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="a4482dd4-0c79-47b2-a306-a0c48b28c592">
                       <SHORT-NAME>McuPeripheralClockConfig_11</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>CRC</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1880,7 +1880,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1891,10 +1891,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="b4120243-3f3e-4b4f-b939-19f2d2344d4d">
                       <SHORT-NAME>McuPeripheralClockConfig_10</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>PDB1</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1910,7 +1910,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1921,10 +1921,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="c2970e83-7117-4b15-99ff-85139eb10dd2">
                       <SHORT-NAME>McuPeripheralClockConfig_9</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>LPSPI2</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1940,7 +1940,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1951,10 +1951,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="efc136e2-27cd-4aa6-8482-a61943e1287b">
                       <SHORT-NAME>McuPeripheralClockConfig_13</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>LPIT</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1970,7 +1970,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -1981,10 +1981,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="39b3836b-49c1-4b9b-83e1-6e3a1295078e">
                       <SHORT-NAME>McuPeripheralClockConfig_4</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>FTM3</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -2000,7 +2000,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -2011,10 +2011,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="ebad2895-ed79-4803-a81f-f6d071b42b8f">
                       <SHORT-NAME>McuPeripheralClockConfig_12</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>PDB0</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -2030,7 +2030,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -2041,10 +2041,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="7a8441a0-3f50-4d98-be40-be79b36bd403">
                       <SHORT-NAME>McuPeripheralClockConfig_3</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>FLEXCAN1</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -2060,7 +2060,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -2071,10 +2071,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="f015e490-8c28-4e54-b172-9702936ae000">
                       <SHORT-NAME>McuPeripheralClockConfig_15</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>FTM1</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -2090,7 +2090,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -2101,10 +2101,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="24a9a388-68a4-4f12-924d-3bac059b7165">
                       <SHORT-NAME>McuPeripheralClockConfig_6</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>FLEXCAN2</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -2120,7 +2120,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -2131,10 +2131,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="ea309b65-777d-482e-98b9-e551665826ea">
                       <SHORT-NAME>McuPeripheralClockConfig_14</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>FTM0</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -2150,7 +2150,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -2161,10 +2161,10 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="2aac531b-8ae8-4fbc-ad51-850fd23f837e">
                       <SHORT-NAME>McuPeripheralClockConfig_5</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPerName</DEFINITION-REF>
                           <VALUE>ADC1</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -2180,7 +2180,7 @@
                           <VALUE>0</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuPeripheralClockConfig/McuPeripheralClockSelect</DEFINITION-REF>
                           <VALUE>EXT_CLK_OR_CLK_OFF</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -2191,7 +2191,7 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="f061c4e8-b1c6-4639-9a37-e57ab5e3905c">
                       <SHORT-NAME>McuClkMonitor_1</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClkMonitor_1</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClkMonitor_1</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-NUMERICAL-PARAM-VALUE>
                           <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuClockSettingConfig/McuClkMonitor_1/McuClkMonitorEn</DEFINITION-REF>
@@ -2223,25 +2223,25 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="6f744e5d-7d57-436e-994b-a18e27446109">
                   <SHORT-NAME>McuResetConfig</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuResetConfig</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuResetConfig</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuResetConfig/McuResetPinFilterBusClockSelect</DEFINITION-REF>
                       <VALUE>0</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-TEXTUAL-PARAM-VALUE>
-                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuResetConfig/McuResetPinFilterInRunAndWait</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuResetConfig/McuResetPinFilterInRunAndWait</DEFINITION-REF>
                       <VALUE>ALL_FILTERING_DISABLE</VALUE>
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-TEXTUAL-PARAM-VALUE>
-                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuResetConfig/McuResetPinFilterInStopMode</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuResetConfig/McuResetPinFilterInStopMode</DEFINITION-REF>
                       <VALUE>ALL_FILTERING_DISABLE</VALUE>
                     </ECUC-TEXTUAL-PARAM-VALUE>
                   </PARAMETER-VALUES>
                   <SUB-CONTAINERS>
                     <ECUC-CONTAINER-VALUE UUID="69f0efde-9f02-46a6-b80a-97e098d12278">
                       <SHORT-NAME>McuSystemInterruptEnable</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuResetConfig/McuSystemInterruptEnable</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuResetConfig/McuSystemInterruptEnable</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-NUMERICAL-PARAM-VALUE>
                           <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuResetConfig/McuSystemInterruptEnable/McuCMULossOfClockResetInterrupt</DEFINITION-REF>
@@ -2276,7 +2276,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuResetConfig/McuSystemInterruptEnable/McuResetDelayTime</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuResetConfig/McuSystemInterruptEnable/McuResetDelayTime</DEFINITION-REF>
                           <VALUE>DELAY_10_LPO_CYCLES</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -2297,14 +2297,14 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="8d9220bd-735c-4fe9-8202-5942509fc6d8">
                   <SHORT-NAME>McuModeSettingConf_0</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuModeSettingConf</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuModeSettingConf</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuModeSettingConf/McuMode</DEFINITION-REF>
                       <VALUE>0</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-TEXTUAL-PARAM-VALUE>
-                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuModeSettingConf/McuPowerMode</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuModuleConfiguration/McuModeSettingConf/McuPowerMode</DEFINITION-REF>
                       <VALUE>RUN</VALUE>
                     </ECUC-TEXTUAL-PARAM-VALUE>
                   </PARAMETER-VALUES>
@@ -2313,11 +2313,11 @@
             </ECUC-CONTAINER-VALUE>
             <ECUC-CONTAINER-VALUE UUID="3f935534-e850-4baa-a8d5-6bff7dbb6d2b">
               <SHORT-NAME>McuPublishedInformation</SHORT-NAME>
-              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation</DEFINITION-REF>
+              <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation</DEFINITION-REF>
               <SUB-CONTAINERS>
                 <ECUC-CONTAINER-VALUE UUID="8079f363-e29a-4951-af36-e1accc987678">
                   <SHORT-NAME>MCU_STOP_ACKNOWLEDGE_ERROR_RESET</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
@@ -2327,7 +2327,7 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="328bc37a-a6cb-4f4e-8963-b32bbc98d650">
                   <SHORT-NAME>MCU_SW_RESET</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
@@ -2337,7 +2337,7 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="638d2d45-f044-4c97-a668-1e53aba3b2ff">
                   <SHORT-NAME>MCU_POWER_ON_RESET</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
@@ -2347,7 +2347,7 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="c4ab2781-5bee-4bd9-8832-d5c594da859e">
                   <SHORT-NAME>MCU_MDM_AP_SYSTEM_RESET</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
@@ -2357,7 +2357,7 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="218fdb6f-2854-414a-9659-c63cf7cc4bb7">
                   <SHORT-NAME>MCU_EXTERNAL_PIN_RESET</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
@@ -2367,7 +2367,7 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="25a1bcd8-76c8-432f-a02f-0b5972def2d7">
                   <SHORT-NAME>MCU_LOW_OR_HIGH_VOLTAGE_DETECT_RESET</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
@@ -2377,7 +2377,7 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="b899b0d6-22b9-426c-92f3-e603cf361bec">
                   <SHORT-NAME>MCU_WATCHDOG_RESET</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
@@ -2387,7 +2387,7 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="4620c521-66b6-4710-b4b0-c6767d4d475d">
                   <SHORT-NAME>MCU_JTAG_RESET</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
@@ -2397,7 +2397,7 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="626d04e8-a55a-4d9f-bd04-a73f6e355156">
                   <SHORT-NAME>MCU_CORE_LOCKUP_RESET</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
@@ -2407,7 +2407,7 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="0c676e33-809e-4179-a979-ecaf2383ec21">
                   <SHORT-NAME>MCU_NO_RESET_REASON</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
@@ -2417,7 +2417,7 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="40e5ebbc-e113-4071-801a-6db02d28018e">
                   <SHORT-NAME>MCU_LOSS_OF_CLOCK_RESET</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
@@ -2427,7 +2427,7 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="6677046d-1ca7-4932-a8c5-395ec5be71f8">
                   <SHORT-NAME>MCU_LOSS_OF_LOCK_RESET</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
@@ -2437,7 +2437,7 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="1d94976d-d76c-43ef-a80e-76078c6190a4">
                   <SHORT-NAME>MCU_CMU_LOC_RESET</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
@@ -2447,7 +2447,7 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="9ea0b80d-6237-4739-8128-e0176bbcbfea">
                   <SHORT-NAME>MCU_MULTIPLE_RESET_REASON</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
@@ -2457,7 +2457,7 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="480e1836-ee19-4acb-bbfc-ab3473dd8bfb">
                   <SHORT-NAME>MCU_RESET_UNDEFINED</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuPublishedInformation/McuResetReasonConf/McuResetReason</DEFINITION-REF>
@@ -2469,7 +2469,7 @@
             </ECUC-CONTAINER-VALUE>
             <ECUC-CONTAINER-VALUE UUID="a8435b12-c764-4bbd-ace0-889dd72fdc24">
               <SHORT-NAME>McuGeneralConfiguration</SHORT-NAME>
-              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuGeneralConfiguration</DEFINITION-REF>
+              <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Mcu/McuGeneralConfiguration</DEFINITION-REF>
               <PARAMETER-VALUES>
                 <ECUC-NUMERICAL-PARAM-VALUE>
                   <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuGeneralConfiguration/McuCalloutBeforePerformReset</DEFINITION-REF>
@@ -2504,7 +2504,7 @@
                   <VALUE>true</VALUE>
                 </ECUC-NUMERICAL-PARAM-VALUE>
                 <ECUC-TEXTUAL-PARAM-VALUE>
-                  <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/TS_T40D2M10I1R0/Mcu/McuGeneralConfiguration/McuPerformResetCallout</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Mcu/McuGeneralConfiguration/McuPerformResetCallout</DEFINITION-REF>
                   <VALUE>NULL_PTR</VALUE>
                 </ECUC-TEXTUAL-PARAM-VALUE>
                 <ECUC-NUMERICAL-PARAM-VALUE>

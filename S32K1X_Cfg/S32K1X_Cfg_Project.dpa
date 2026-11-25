@@ -40,6 +40,7 @@
         <DDM Version="5.18.37 SP1"/>
     </Tools>
     <Input>
+        <ECUEX>Config\System\SystemExtract.arxml</ECUEX>
         <Options>
             <IgnoreUuidsSystemDescriptionFiles>false</IgnoreUuidsSystemDescriptionFiles>
             <IgnoreUuidsStandardConfigurationFiles>false</IgnoreUuidsStandardConfigurationFiles>
@@ -49,10 +50,13 @@
     </Input>
     <References>
         <DVWorkspace>.\Config\Developer\S32K1X_Cfg_Project.dcf</DVWorkspace>
+        <FlatMap>.\Config\System\FlatMap.arxml</FlatMap>
+        <FlatECUEX>.\Config\System\FlatExtract.arxml</FlatECUEX>
+        <OEMCommunicationExtract>Config\System\Communication.arxml</OEMCommunicationExtract>
         <EcucFileReferences/>
     </References>
     <EcucSplitter>
-        <Configuration>.\Config\ECUC\S32K1X_Cfg_Project.ecuc.arxml</Configuration>
+        <Configuration>Config\ECUC\S32K1X_Cfg_Project.ecuc.arxml</Configuration>
         <Splitter File=".\Config\ECUC\S32K1X_Cfg_Project_Resource_ecuc.arxml">
             <Module Name="Resource"/>
         </Splitter>
@@ -71,12 +75,50 @@
         <Splitter File=".\Config\ECUC\S32K1X_Cfg_Project_Port_ecuc.arxml">
             <Module Name="Port"/>
         </Splitter>
+        <Splitter File=".\Config\ECUC\S32K1X_Cfg_Project_Com_ecuc.arxml">
+            <Module Name="Com"/>
+        </Splitter>
+        <Splitter File=".\Config\ECUC\S32K1X_Cfg_Project_Rte_ecuc.arxml">
+            <Module Name="Rte"/>
+        </Splitter>
+        <Splitter File=".\Config\ECUC\S32K1X_Cfg_Project_EcuM_ecuc.arxml">
+            <Module Name="EcuM"/>
+        </Splitter>
+        <Splitter File=".\Config\ECUC\S32K1X_Cfg_Project_Os_ecuc.arxml">
+            <Module Name="Os"/>
+        </Splitter>
+        <Splitter File=".\Config\ECUC\S32K1X_Cfg_Project_PduR_ecuc.arxml">
+            <Module Name="PduR"/>
+        </Splitter>
+        <Splitter File=".\Config\ECUC\S32K1X_Cfg_Project_CanSM_ecuc.arxml">
+            <Module Name="CanSM"/>
+        </Splitter>
+        <Splitter File=".\Config\ECUC\S32K1X_Cfg_Project_Can_ecuc.arxml">
+            <Module Name="Can"/>
+        </Splitter>
+        <Splitter File=".\Config\ECUC\S32K1X_Cfg_Project_CanIf_ecuc.arxml">
+            <Module Name="CanIf"/>
+        </Splitter>
+        <Splitter File=".\Config\ECUC\S32K1X_Cfg_Project_Det_ecuc.arxml">
+            <Module Name="Det"/>
+        </Splitter>
+        <Splitter File=".\Config\ECUC\S32K1X_Cfg_Project_ComM_ecuc.arxml">
+            <Module Name="ComM"/>
+        </Splitter>
+        <Splitter File=".\Config\ECUC\S32K1X_Cfg_Project_EcuC_ecuc.arxml">
+            <Module Name="EcuC"/>
+        </Splitter>
+        <Splitter File=".\Config\ECUC\S32K1X_Cfg_Project_BswM_ecuc.arxml">
+            <Module Name="BswM"/>
+        </Splitter>
         <OwnFolderForEachSplitter>false</OwnFolderForEachSplitter>
     </EcucSplitter>
     <Display LastVersion="5.18.37 SP1">
-        <FileSet Id="" CS="ff49f30d">
+        <FileSet Id="" CS="e79821ef">
+            <File Order="1" EcuInstance="BCM" Hash="dc05f3def5f822f01c4ae5fb92799739" FileCategory="legacy_communication_data">$(DpaProjectFolder)\ImputFiles\Comfort_CAN.dbc</File>
             <Psc Order="0" Hash="b17b6ec68c705d637654b34318e8aa28">$(DpaProjectFolder)\ImputFiles\S32K1X_MCAL.arxml</Psc>
         </FileSet>
+        <Merge/>
     </Display>
     <ECUC>
         <Active RootPackageName="/ActiveEcuC/ActiveEcuC">Config\ECUC\S32K1X_Cfg_Project.ecuc.arxml</Active>
@@ -99,6 +141,10 @@
                         <Setting Value="false" Name="tresosverification"/>
                     </Settings>
                 </Settings>
+            </Settings>
+            <Settings Name="com.vector.cfg.gui.core.generators.GeneratedModules">
+                <Setting Value="false" Name="CanNm"/>
+                <Setting Value="false" Name="Nm"/>
             </Settings>
         </Generators>
         <Misc>
@@ -188,9 +234,14 @@
                     <Setting Value="1.2.0" Name="BswImplSwVersion"/>
                 </Settings>
             </Settings>
+            <Settings Name="com.vector.cfg.gui.pse.pages.generators">
+                <Settings Name="BuildVipProject"/>
+                <Settings Name="CustomWorkflowExecution"/>
+            </Settings>
             <Settings Name="com.vector.cfg.persistency.internal.folder">
                 <Settings Name="TargetFolderManager"/>
             </Settings>
+            <Settings Name="generationReportSettings"/>
         </Misc>
     </ToolSettings>
     <TopDownServiceConfiguration>

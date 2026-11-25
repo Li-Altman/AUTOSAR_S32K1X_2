@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00045.xsd">
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-2-1.xsd">
   <AR-PACKAGES>
     <AR-PACKAGE>
       <SHORT-NAME>ActiveEcuC</SHORT-NAME>
@@ -14,16 +14,16 @@
             </SDGS>
           </ADMIN-DATA>
           <DEFINITION-REF DEST="ECUC-MODULE-DEF">/TS_T40D2M10I1R0/Port</DEFINITION-REF>
-          <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-POST-BUILD-LOADABLE</IMPLEMENTATION-CONFIG-VARIANT>
+          <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-POST-BUILD</IMPLEMENTATION-CONFIG-VARIANT>
           <MODULE-DESCRIPTION-REF DEST="BSW-IMPLEMENTATION">/TS_T40D2M10I1R0/Port_Impl</MODULE-DESCRIPTION-REF>
           <CONTAINERS>
             <ECUC-CONTAINER-VALUE UUID="b1e2fcac-4609-4b9a-946c-88d551dd008f">
               <SHORT-NAME>PortConfigSet</SHORT-NAME>
-              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet</DEFINITION-REF>
+              <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet</DEFINITION-REF>
               <SUB-CONTAINERS>
                 <ECUC-CONTAINER-VALUE UUID="8ee11998-d8ea-4a4c-8bdc-fc376796a4c0">
                   <SHORT-NAME>PortContainer_PTE</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortNumberOfPortPins</DEFINITION-REF>
@@ -33,14 +33,14 @@
                   <SUB-CONTAINERS>
                     <ECUC-CONTAINER-VALUE UUID="f9398ee0-04ab-4f0b-a11a-e8322f47dd28">
                       <SHORT-NAME>PortPin_PTE20</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDSE</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDSE</DEFINITION-REF>
                           <VALUE>Low_drive_strength</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDirection</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDirection</DEFINITION-REF>
                           <VALUE>PORT_PIN_OUT</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -52,15 +52,15 @@
                           <VALUE>1</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinInitialMode</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinInitialMode</DEFINITION-REF>
                           <VALUE>PORT_GPIO_MODE</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinLevelValue</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinLevelValue</DEFINITION-REF>
                           <VALUE>PORT_PIN_LEVEL_LOW</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinMode</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinMode</DEFINITION-REF>
                           <VALUE>GPIO</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -68,7 +68,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPE</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPE</DEFINITION-REF>
                           <VALUE>PullEnabled</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -76,7 +76,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPS</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPS</DEFINITION-REF>
                           <VALUE>PullDown</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -87,14 +87,14 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="a285cc78-3226-46d4-8620-43067b95b876">
                       <SHORT-NAME>PortPin_PTE21</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDSE</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDSE</DEFINITION-REF>
                           <VALUE>Low_drive_strength</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDirection</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDirection</DEFINITION-REF>
                           <VALUE>PORT_PIN_OUT</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -106,15 +106,15 @@
                           <VALUE>2</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinInitialMode</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinInitialMode</DEFINITION-REF>
                           <VALUE>PORT_GPIO_MODE</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinLevelValue</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinLevelValue</DEFINITION-REF>
                           <VALUE>PORT_PIN_LEVEL_LOW</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinMode</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinMode</DEFINITION-REF>
                           <VALUE>GPIO</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -122,7 +122,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPE</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPE</DEFINITION-REF>
                           <VALUE>PullEnabled</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -130,7 +130,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPS</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPS</DEFINITION-REF>
                           <VALUE>PullDown</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -143,7 +143,7 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="4a104d91-c504-447d-940d-9c44e8f1aa41">
                   <SHORT-NAME>PortContainer_JTAG</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortNumberOfPortPins</DEFINITION-REF>
@@ -153,14 +153,14 @@
                   <SUB-CONTAINERS>
                     <ECUC-CONTAINER-VALUE UUID="c7475ba1-a9ed-45a4-81b0-8374488c3355">
                       <SHORT-NAME>PortPin_PTA5_NRESET</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDSE</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDSE</DEFINITION-REF>
                           <VALUE>Low_drive_strength</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDirection</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDirection</DEFINITION-REF>
                           <VALUE>PORT_PIN_IN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -172,15 +172,15 @@
                           <VALUE>7</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinInitialMode</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinInitialMode</DEFINITION-REF>
                           <VALUE>PORT_GPIO_MODE</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinLevelValue</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinLevelValue</DEFINITION-REF>
                           <VALUE>PORT_PIN_LEVEL_LOW</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinMode</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinMode</DEFINITION-REF>
                           <VALUE>RESET_b</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -188,7 +188,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPE</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPE</DEFINITION-REF>
                           <VALUE>PullEnabled</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -196,7 +196,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPS</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPS</DEFINITION-REF>
                           <VALUE>PullUp</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -207,14 +207,14 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="3bf0e525-5fae-447f-9193-4241c81f7e27">
                       <SHORT-NAME>PortPin_PTC5_JTAG_TDI</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDSE</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDSE</DEFINITION-REF>
                           <VALUE>Low_drive_strength</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDirection</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDirection</DEFINITION-REF>
                           <VALUE>PORT_PIN_IN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -226,15 +226,15 @@
                           <VALUE>5</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinInitialMode</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinInitialMode</DEFINITION-REF>
                           <VALUE>PORT_GPIO_MODE</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinLevelValue</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinLevelValue</DEFINITION-REF>
                           <VALUE>PORT_PIN_LEVEL_LOW</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinMode</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinMode</DEFINITION-REF>
                           <VALUE>JTAG_TDI</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -242,7 +242,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPE</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPE</DEFINITION-REF>
                           <VALUE>PullEnabled</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -250,7 +250,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPS</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPS</DEFINITION-REF>
                           <VALUE>PullUp</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -261,14 +261,14 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="36cad14e-1c27-4772-8bc2-5ca022e2f786">
                       <SHORT-NAME>PortPin_PTA4_JTAG_TMS</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDSE</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDSE</DEFINITION-REF>
                           <VALUE>Low_drive_strength</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDirection</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDirection</DEFINITION-REF>
                           <VALUE>PORT_PIN_IN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -280,15 +280,15 @@
                           <VALUE>3</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinInitialMode</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinInitialMode</DEFINITION-REF>
                           <VALUE>PORT_GPIO_MODE</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinLevelValue</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinLevelValue</DEFINITION-REF>
                           <VALUE>PORT_PIN_LEVEL_LOW</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinMode</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinMode</DEFINITION-REF>
                           <VALUE>JTAG_TMS_SWD_DIO</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -296,7 +296,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPE</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPE</DEFINITION-REF>
                           <VALUE>PullEnabled</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -304,7 +304,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPS</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPS</DEFINITION-REF>
                           <VALUE>PullUp</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -315,14 +315,14 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="13db2f1e-4be3-4aa6-9c8a-f51a433fb39e">
                       <SHORT-NAME>PortPin_PTA10_JTAG_TDO</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDSE</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDSE</DEFINITION-REF>
                           <VALUE>Low_drive_strength</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDirection</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDirection</DEFINITION-REF>
                           <VALUE>PORT_PIN_OUT</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -334,15 +334,15 @@
                           <VALUE>6</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinInitialMode</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinInitialMode</DEFINITION-REF>
                           <VALUE>PORT_GPIO_MODE</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinLevelValue</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinLevelValue</DEFINITION-REF>
                           <VALUE>PORT_PIN_LEVEL_LOW</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinMode</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinMode</DEFINITION-REF>
                           <VALUE>JTAG_TDO</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -350,7 +350,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPE</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPE</DEFINITION-REF>
                           <VALUE>PullDisabled</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -358,7 +358,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPS</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPS</DEFINITION-REF>
                           <VALUE>PullDown</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -369,14 +369,14 @@
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE UUID="81b121c6-0622-4817-90e6-e238d7ac91a6">
                       <SHORT-NAME>PortPin_PTC4_JTAG_TCLK</SHORT-NAME>
-                      <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDSE</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDSE</DEFINITION-REF>
                           <VALUE>Low_drive_strength</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDirection</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinDirection</DEFINITION-REF>
                           <VALUE>PORT_PIN_IN</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -388,15 +388,15 @@
                           <VALUE>4</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinInitialMode</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinInitialMode</DEFINITION-REF>
                           <VALUE>PORT_GPIO_MODE</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinLevelValue</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinLevelValue</DEFINITION-REF>
                           <VALUE>PORT_PIN_LEVEL_LOW</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinMode</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinMode</DEFINITION-REF>
                           <VALUE>JTAG_TCLK_SWD_CLK</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -404,7 +404,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPE</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPE</DEFINITION-REF>
                           <VALUE>PullEnabled</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -412,7 +412,7 @@
                           <VALUE>false</VALUE>
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
-                          <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPS</DEFINITION-REF>
+                          <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/PortContainer/PortPin/PortPinPS</DEFINITION-REF>
                           <VALUE>PullDown</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-NUMERICAL-PARAM-VALUE>
@@ -425,26 +425,26 @@
                 </ECUC-CONTAINER-VALUE>
                 <ECUC-CONTAINER-VALUE UUID="5c6cb923-14c7-4097-bbcb-f7f32c7235bf">
                   <SHORT-NAME>NotUsedPortPin</SHORT-NAME>
-                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/NotUsedPortPin</DEFINITION-REF>
+                  <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/NotUsedPortPin</DEFINITION-REF>
                   <PARAMETER-VALUES>
                     <ECUC-TEXTUAL-PARAM-VALUE>
-                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/NotUsedPortPin/PortPinDSE</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/NotUsedPortPin/PortPinDSE</DEFINITION-REF>
                       <VALUE>Low_Drive_Strength</VALUE>
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-TEXTUAL-PARAM-VALUE>
-                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/NotUsedPortPin/PortPinDirection</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/NotUsedPortPin/PortPinDirection</DEFINITION-REF>
                       <VALUE>PORT_PIN_IN</VALUE>
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-TEXTUAL-PARAM-VALUE>
-                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/NotUsedPortPin/PortPinLevelValue</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/NotUsedPortPin/PortPinLevelValue</DEFINITION-REF>
                       <VALUE>PORT_PIN_LEVEL_LOW</VALUE>
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-TEXTUAL-PARAM-VALUE>
-                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/NotUsedPortPin/PortPinPE</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/NotUsedPortPin/PortPinPE</DEFINITION-REF>
                       <VALUE>PullEnabled</VALUE>
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-TEXTUAL-PARAM-VALUE>
-                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/NotUsedPortPin/PortPinPS</DEFINITION-REF>
+                      <DEFINITION-REF DEST="ECUC-ABSTRACT-STRING-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortConfigSet/NotUsedPortPin/PortPinPS</DEFINITION-REF>
                       <VALUE>PullDown</VALUE>
                     </ECUC-TEXTUAL-PARAM-VALUE>
                   </PARAMETER-VALUES>
@@ -453,7 +453,7 @@
             </ECUC-CONTAINER-VALUE>
             <ECUC-CONTAINER-VALUE UUID="853ad78d-4404-4e9a-90fc-e909d32764bc">
               <SHORT-NAME>PortGeneral</SHORT-NAME>
-              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortGeneral</DEFINITION-REF>
+              <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/PortGeneral</DEFINITION-REF>
               <PARAMETER-VALUES>
                 <ECUC-NUMERICAL-PARAM-VALUE>
                   <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D2M10I1R0/Port/PortGeneral/PortDevErrorDetect</DEFINITION-REF>
@@ -487,7 +487,7 @@
             </ECUC-CONTAINER-VALUE>
             <ECUC-CONTAINER-VALUE UUID="6ecdbe63-f0ca-49e2-bdf9-ce1a23ef5d46">
               <SHORT-NAME>CommonPublishedInformation</SHORT-NAME>
-              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/CommonPublishedInformation</DEFINITION-REF>
+              <DEFINITION-REF DEST="ECUC-CHOICE-CONTAINER-DEF">/TS_T40D2M10I1R0/Port/CommonPublishedInformation</DEFINITION-REF>
               <PARAMETER-VALUES>
                 <ECUC-NUMERICAL-PARAM-VALUE>
                   <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D2M10I1R0/Port/CommonPublishedInformation/ArReleaseMajorVersion</DEFINITION-REF>
