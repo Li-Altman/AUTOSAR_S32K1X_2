@@ -36,17 +36,17 @@ BS_:
 BU_: BCM LCU
 
 
-BO_ 291 BCM1_1: 8 LCU
+BO_ 291 LCU1_1: 8 LCU
  SG_ LightCmd : 7|8@0+ (1,0) [0|255] ""  BCM
 
-BO_ 1110 BCM1_2: 8 BCM
+BO_ 1110 BCM1_1: 8 BCM
  SG_ LightState : 7|8@0+ (1,0) [0|255] ""  LCU
 
 
 
-CM_ BO_ 291 "BCM1_1: Light control command, sent by LCU and received by BCM.";
+CM_ BO_ 291 "LCU1_1: Light control command, sent by LCU and received by BCM.";
 CM_ SG_ 291 LightCmd "Light control command: 0=Off, 1=On.";
-CM_ BO_ 1110 "BCM1_2: Light status, sent by BCM and received by LCU.";
+CM_ BO_ 1110 "BCM1_1: Light status, sent by BCM and received by LCU.";
 CM_ SG_ 1110 LightState "Light status: 0=Off, 1=On.";
 BA_DEF_ SG_  "GenSigCycleTimeActive" INT 0 0;
 BA_DEF_ SG_  "GenSigInactiveValue" INT 0 0;
